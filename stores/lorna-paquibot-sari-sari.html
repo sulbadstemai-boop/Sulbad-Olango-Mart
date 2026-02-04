@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lorna Paquibot Sari-Sari Store | Sulbad Olango Mart</title>
+<style>
+:root { --red: #F20519; --blue: #05AFF2; --green: #038C4C; --yellow: #F2E205; --gold: #F2CB05; --dark: #1a1a2e; --light: #f8f9fa; --gray: #636e72; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--light); min-height: 100vh; color: var(--dark); line-height: 1.6; }
+.header { background: linear-gradient(90deg, var(--blue) 0%, var(--green) 100%); color: white; padding: 15px 20px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+.header-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+.header-brand { font-size: 1.5rem; font-weight: 800; }
+.header-brand a { color: white; text-decoration: none; display: flex; align-items: center; gap: 8px; }
+.header-info { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.nav-btn { background: rgba(255,255,255,0.2); color: white; text-decoration: none; padding: 10px 20px; border-radius: 25px; font-weight: 600; font-size: 0.9rem; transition: all 0.3s; border: none; cursor: pointer; }
+.nav-btn:hover { background: var(--yellow); color: var(--dark); }
+.nav-btn.primary { background: var(--red); }
+.hero { background: linear-gradient(135deg, var(--blue) 0%, var(--green) 100%); padding: 60px 20px; text-align: center; color: white; }
+.hero-title { font-size: 2.8rem; font-weight: 900; margin-bottom: 10px; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); }
+.hero-tagline { font-size: 1.3rem; color: var(--yellow); font-weight: 600; }
+.section { padding: 40px 20px; max-width: 1200px; margin: 0 auto; }
+.section-title { font-size: 1.8rem; font-weight: 800; text-align: center; margin-bottom: 30px; color: var(--dark); }
+.featured-section { background: linear-gradient(135deg, #fff9e6 0%, #fff 100%); padding: 50px 20px; }
+.featured-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; }
+.featured-card { background: white; border-radius: 20px; padding: 30px 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 4px solid var(--gold); position: relative; text-align: center; transition: transform 0.3s; }
+.featured-card:hover { transform: translateY(-10px); }
+.featured-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--red); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; }
+.featured-icon { font-size: 3rem; margin-bottom: 15px; }
+.featured-title { font-size: 1.2rem; font-weight: 800; color: var(--blue); margin-bottom: 10px; }
+.featured-text { font-size: 0.95rem; color: var(--gray); margin-bottom: 15px; }
+.featured-price { font-size: 1.1rem; font-weight: 700; color: var(--green); }
+.category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
+.category-card { background: white; border-radius: 20px; padding: 30px 15px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.08); transition: all 0.3s; cursor: pointer; text-decoration: none; color: var(--dark); display: block; border-top: 5px solid; }
+.category-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,0.15); }
+.category-icon { font-size: 2.5rem; margin-bottom: 10px; }
+.category-name { font-size: 1.1rem; font-weight: 700; }
+.barangay-filter { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 30px; }
+.barangay-btn { background: white; border: 2px solid var(--blue); color: var(--blue); padding: 10px 20px; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s; }
+.barangay-btn:hover { background: var(--blue); color: white; }
+.store-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.store-card { background: white; border-radius: 15px; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); text-decoration: none; color: var(--dark); display: block; transition: all 0.3s; border-left: 5px solid var(--green); }
+.store-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.12); }
+.store-name { font-size: 1.2rem; font-weight: 800; color: var(--blue); margin-bottom: 8px; }
+.store-info { font-size: 0.9rem; color: var(--gray); margin-bottom: 5px; }
+.store-phone { font-size: 1rem; font-weight: 700; color: var(--green); }
+.product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 15px; }
+.product-card { background: white; border-radius: 12px; padding: 15px; box-shadow: 0 3px 10px rgba(0,0,0,0.08); border-left: 4px solid var(--green); position: relative; }
+.product-cat { font-size: 0.7rem; color: white; background: var(--green); padding: 2px 8px; border-radius: 10px; display: inline-block; margin-bottom: 8px; }
+.product-name { font-size: 0.9rem; font-weight: 600; margin-bottom: 8px; min-height: 40px; }
+.product-price { font-size: 1.3rem; font-weight: 800; color: var(--red); }
+.add-cart-btn { background: var(--red); color: white; border: none; padding: 8px 15px; border-radius: 20px; cursor: pointer; font-weight: 600; margin-top: 10px; width: 100%; transition: all 0.3s; }
+.add-cart-btn:hover { background: var(--dark); }
+.home-service-badge { background: linear-gradient(135deg, var(--green), var(--blue)); color: white; padding: 15px 25px; border-radius: 15px; text-align: center; margin: 20px 0; font-weight: 700; font-size: 1.1rem; }
+.fb-button { display: inline-flex; align-items: center; gap: 8px; background: #1877F2; color: white; padding: 12px 25px; border-radius: 25px; text-decoration: none; font-weight: 600; margin-top: 15px; transition: all 0.3s; }
+.fb-button:hover { background: #166fe5; transform: scale(1.05); }
+.cart-widget { position: fixed; bottom: 20px; right: 20px; background: var(--red); color: white; padding: 15px 25px; border-radius: 50px; box-shadow: 0 5px 20px rgba(0,0,0,0.3); cursor: pointer; z-index: 1000; font-weight: 700; display: flex; align-items: center; gap: 10px; transition: all 0.3s; }
+.cart-widget:hover { transform: scale(1.1); }
+.footer { background: var(--dark); color: white; padding: 40px 20px; text-align: center; margin-top: 50px; }
+.footer-brand { font-size: 1.5rem; font-weight: 800; color: var(--gold); margin-bottom: 15px; }
+.footer a { color: var(--yellow); text-decoration: none; }
+.modal-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7); z-index: 2000; justify-content: center; align-items: center; padding: 20px; }
+.modal-overlay.active { display: flex; }
+.modal { background: var(--light); border-radius: 20px; max-width: 500px; width: 100%; max-height: 90vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+.modal-header { background: linear-gradient(90deg, var(--blue) 0%, var(--green) 100%); color: white; padding: 20px; display: flex; justify-content: space-between; align-items: center; }
+.modal-body { padding: 25px; }
+.form-group { margin-bottom: 15px; }
+.form-label { display: block; font-weight: 700; margin-bottom: 5px; color: var(--dark); }
+.form-input, .form-select, .form-textarea { width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 10px; font-size: 1rem; transition: border-color 0.3s; }
+.form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--blue); outline: none; }
+.form-textarea { min-height: 100px; resize: vertical; }
+.submit-btn { width: 100%; background: linear-gradient(90deg, var(--green) 0%, var(--blue) 100%); color: white; border: none; padding: 15px; border-radius: 10px; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: all 0.3s; }
+.submit-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+.notice-text { color: var(--red); font-size: 0.85rem; margin: 15px 0; font-weight: 600; text-align: center; }
+.barangay-section { margin-bottom: 40px; }
+.barangay-title { font-size: 1.4rem; font-weight: 700; color: var(--blue); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 3px solid var(--yellow); }
+.info-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+.info-table th { background: var(--blue); color: white; padding: 12px; text-align: left; }
+.info-table td { padding: 12px; border-bottom: 1px solid #eee; }
+.info-table tr:hover { background: #f8f9fa; }
+@media (max-width: 768px) { .hero-title { font-size: 2rem; } .category-grid { grid-template-columns: repeat(2, 1fr); } }
+</style>
+</head>
+<body>
+<header class="header">
+<div class="header-content">
+<div class="header-brand"><a href="../index.html">🏝️ Sulbad Olango Mart</a></div>
+<div class="header-info">
+<a href="../index.html" class="nav-btn primary">🏠 HOME</a>
+<button class="nav-btn" onclick="openContactModal()" style="background:#F20519;">📧 Contact Us</button>
+<a href="../ferry-info.html" class="nav-btn">⛴️ Ferry</a>
+<a href="../typhoon-updates.html" class="nav-btn" style="background:#F2CB05;color:#1a1a2e;">🌀 Typhoon</a>
+</div>
+</div>
+</header>
+<section class="hero" style="padding:40px 20px;">
+<div style="font-size:3rem;margin-bottom:10px;">🏪</div>
+<h1 class="hero-title" style="font-size:1.8rem;">Lorna Paquibot Sari-Sari Store</h1>
+<p style="color:#F2E205;">Talima, Olango Island</p>
+<a href="https://www.facebook.com/lorna.paquibot.9" target="_blank" class="fb-button">
+<svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+Chat on Facebook
+</a>
+
+</section>
+<section class="section">
+<div style="background:white;padding:20px;border-radius:15px;margin-bottom:30px;box-shadow:0 3px 10px rgba(0,0,0,0.08);">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+<div>
+<div style="color:#636e72;font-size:0.85rem;margin-bottom:5px;">📍 ADDRESS</div>
+<div style="font-weight:600;">Purok 3, Sitio Lubi-lubi, Near Chapel, Barangay Talima</div>
+</div>
+<div>
+<div style="color:#636e72;font-size:0.85rem;margin-bottom:5px;">📞 CONTACT</div>
+<div style="font-weight:600;">+63 9695176093</div>
+</div>
+</div>
+</div>
+<h2 class="section-title">📋 Products & Services</h2>
+<div class="product-grid"><div class="product-card">
+<span class="product-cat">Canned Fish</span>
+<div class="product-name">Bear Brand Sardines (155g)</div>
+<div class="product-price">₱25</div>
+<button class="add-cart-btn" onclick="addToCart('Bear Brand Sardines (155g)', 25)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Canned Fish</span>
+<div class="product-name">Silver Swan Sardines (155g)</div>
+<div class="product-price">₱20</div>
+<button class="add-cart-btn" onclick="addToCart('Silver Swan Sardines (155g)', 20)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Canned Fish</span>
+<div class="product-name">555 Sardines in Tomato Sauce (155g)</div>
+<div class="product-price">₱30</div>
+<button class="add-cart-btn" onclick="addToCart('555 Sardines in Tomato Sauce (155g)', 30)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Canned Fish</span>
+<div class="product-name">Mega Sardines Green (Easy Open)</div>
+<div class="product-price">₱33</div>
+<button class="add-cart-btn" onclick="addToCart('Mega Sardines Green (Easy Open)', 33)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Canned Fish</span>
+<div class="product-name">Ligo Sardines (Red)</div>
+<div class="product-price">₱28</div>
+<button class="add-cart-btn" onclick="addToCart('Ligo Sardines (Red)', 28)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Canned Fish</span>
+<div class="product-name">Young's Town Sardines</div>
+<div class="product-price">₱25</div>
+<button class="add-cart-btn" onclick="addToCart('Young's Town Sardines', 25)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Canned Fish</span>
+<div class="product-name">Bingo Corned Tuna</div>
+<div class="product-price">₱35</div>
+<button class="add-cart-btn" onclick="addToCart('Bingo Corned Tuna', 35)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Canned Fish</span>
+<div class="product-name">Century Tuna Flakes in Oil (155g)</div>
+<div class="product-price">₱48</div>
+<button class="add-cart-btn" onclick="addToCart('Century Tuna Flakes in Oil (155g)', 48)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Canned Fish</span>
+<div class="product-name">Century Tuna Flakes in Oil (180g)</div>
+<div class="product-price">₱58</div>
+<button class="add-cart-btn" onclick="addToCart('Century Tuna Flakes in Oil (180g)', 58)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Canned Fish</span>
+<div class="product-name">555 Tuna Flakes in Oil</div>
+<div class="product-price">₱40</div>
+<button class="add-cart-btn" onclick="addToCart('555 Tuna Flakes in Oil', 40)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Canned Fish</span>
+<div class="product-name">Mega Tuna Flakes in Oil</div>
+<div class="product-price">₱52</div>
+<button class="add-cart-btn" onclick="addToCart('Mega Tuna Flakes in Oil', 52)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Canned Meat</span>
+<div class="product-name">Del Monte Corned Beef (150g)</div>
+<div class="product-price">₱45</div>
+<button class="add-cart-btn" onclick="addToCart('Del Monte Corned Beef (150g)', 45)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Canned Meat</span>
+<div class="product-name">Del Monte Corned Beef (210g)</div>
+<div class="product-price">₱68</div>
+<button class="add-cart-btn" onclick="addToCart('Del Monte Corned Beef (210g)', 68)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Canned Meat</span>
+<div class="product-name">Miguel Corned Beef (150g)</div>
+<div class="product-price">₱35</div>
+<button class="add-cart-btn" onclick="addToCart('Miguel Corned Beef (150g)', 35)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Canned Meat</span>
+<div class="product-name">Argentina Corned Beef (150g)</div>
+<div class="product-price">₱45</div>
+<button class="add-cart-btn" onclick="addToCart('Argentina Corned Beef (150g)', 45)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Canned Meat</span>
+<div class="product-name">Swift Corned Beef (150g)</div>
+<div class="product-price">₱40</div>
+<button class="add-cart-btn" onclick="addToCart('Swift Corned Beef (150g)', 40)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Canned Meat</span>
+<div class="product-name">Emperador Ham Loaf (300g)</div>
+<div class="product-price">₱50</div>
+<button class="add-cart-btn" onclick="addToCart('Emperador Ham Loaf (300g)', 50)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Canned Meat</span>
+<div class="product-name">Star Ulam Burger Steak / Bicol Express</div>
+<div class="product-price">₱36</div>
+<button class="add-cart-btn" onclick="addToCart('Star Ulam Burger Steak / Bicol Express', 36)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Canned Meat</span>
+<div class="product-name">Wow Ulam Adobo / Afritada</div>
+<div class="product-price">₱29</div>
+<button class="add-cart-btn" onclick="addToCart('Wow Ulam Adobo / Afritada', 29)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Canned Meat</span>
+<div class="product-name">Silver Swan Vienna Sausage (130g)</div>
+<div class="product-price">₱20</div>
+<button class="add-cart-btn" onclick="addToCart('Silver Swan Vienna Sausage (130g)', 20)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Canned Meat</span>
+<div class="product-name">Monarch Vienna Sausage</div>
+<div class="product-price">₱15</div>
+<button class="add-cart-btn" onclick="addToCart('Monarch Vienna Sausage', 15)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Canned Meat</span>
+<div class="product-name">Argentina Vienna Sausage</div>
+<div class="product-price">₱35</div>
+<button class="add-cart-btn" onclick="addToCart('Argentina Vienna Sausage', 35)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Noodles (Pouch)</span>
+<div class="product-name">Mami Chicken/Beef (Pouch)</div>
+<div class="product-price">₱15</div>
+<button class="add-cart-btn" onclick="addToCart('Mami Chicken/Beef (Pouch)', 15)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Noodles (Pouch)</span>
+<div class="product-name">Ace Beef Noodles</div>
+<div class="product-price">₱18</div>
+<button class="add-cart-btn" onclick="addToCart('Ace Beef Noodles', 18)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Noodles (Pouch)</span>
+<div class="product-name">Lucky Me! Instant Mami (Beef/Chicken)</div>
+<div class="product-price">₱15</div>
+<button class="add-cart-btn" onclick="addToCart('Lucky Me! Instant Mami (Beef/Chicken)', 15)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Noodles (Pouch)</span>
+<div class="product-name">Nissin Ramen (Seafood/Beef)</div>
+<div class="product-price">₱16</div>
+<button class="add-cart-btn" onclick="addToCart('Nissin Ramen (Seafood/Beef)', 16)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Noodles (Pouch)</span>
+<div class="product-name">Lucky Me! Pancit Canton (Original)</div>
+<div class="product-price">₱17</div>
+<button class="add-cart-btn" onclick="addToCart('Lucky Me! Pancit Canton (Original)', 17)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Noodles (Pouch)</span>
+<div class="product-name">Lucky Me! Pancit Canton (Kalamansi)</div>
+<div class="product-price">₱17</div>
+<button class="add-cart-btn" onclick="addToCart('Lucky Me! Pancit Canton (Kalamansi)', 17)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Noodles (Pouch)</span>
+<div class="product-name">Lucky Me! Pancit Canton (Chilimansi)</div>
+<div class="product-price">₱18</div>
+<button class="add-cart-btn" onclick="addToCart('Lucky Me! Pancit Canton (Chilimansi)', 18)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Noodles (Pouch)</span>
+<div class="product-name">Payless Pancit Canton</div>
+<div class="product-price">₱13</div>
+<button class="add-cart-btn" onclick="addToCart('Payless Pancit Canton', 13)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Noodles (Cup)</span>
+<div class="product-name">Lucky Me! Go Cup (Mini)</div>
+<div class="product-price">₱26</div>
+<button class="add-cart-btn" onclick="addToCart('Lucky Me! Go Cup (Mini)', 26)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Noodles (Cup)</span>
+<div class="product-name">Nissin Cup Noodles (Seafood/Beef)</div>
+<div class="product-price">₱32</div>
+<button class="add-cart-btn" onclick="addToCart('Nissin Cup Noodles (Seafood/Beef)', 32)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Noodles (Cup)</span>
+<div class="product-name">Kimchi Korean Cup Noodles</div>
+<div class="product-price">₱33</div>
+<button class="add-cart-btn" onclick="addToCart('Kimchi Korean Cup Noodles', 33)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Snacks (Chips)</span>
+<div class="product-name">Piattos Cheese / Sour Cream</div>
+<div class="product-price">₱30</div>
+<button class="add-cart-btn" onclick="addToCart('Piattos Cheese / Sour Cream', 30)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Snacks (Chips)</span>
+<div class="product-name">Oishi Krunchy Potato Chips</div>
+<div class="product-price">₱25</div>
+<button class="add-cart-btn" onclick="addToCart('Oishi Krunchy Potato Chips', 25)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Snacks (Chips)</span>
+<div class="product-name">Oishi Marty's Cracklin'</div>
+<div class="product-price">₱15</div>
+<button class="add-cart-btn" onclick="addToCart('Oishi Marty's Cracklin'', 15)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Snacks (Chips)</span>
+<div class="product-name">Chippy Corn Chips (Red)</div>
+<div class="product-price">₱13</div>
+<button class="add-cart-btn" onclick="addToCart('Chippy Corn Chips (Red)', 13)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Snacks (Chips)</span>
+<div class="product-name">Clover Chips Cheese</div>
+<div class="product-price">₱9</div>
+<button class="add-cart-btn" onclick="addToCart('Clover Chips Cheese', 9)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Snacks (Chips)</span>
+<div class="product-name">V-Cut Potato Chips</div>
+<div class="product-price">₱15</div>
+<button class="add-cart-btn" onclick="addToCart('V-Cut Potato Chips', 15)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Snacks (Chips)</span>
+<div class="product-name">Nova Multigrain Snacks</div>
+<div class="product-price">₱25</div>
+<button class="add-cart-btn" onclick="addToCart('Nova Multigrain Snacks', 25)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Biscuits/Choco</span>
+<div class="product-name">Chips Ahoy Cookies</div>
+<div class="product-price">₱20</div>
+<button class="add-cart-btn" onclick="addToCart('Chips Ahoy Cookies', 20)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Biscuits/Choco</span>
+<div class="product-name">Monde Cream Puffs</div>
+<div class="product-price">₱15</div>
+<button class="add-cart-btn" onclick="addToCart('Monde Cream Puffs', 15)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Biscuits/Choco</span>
+<div class="product-name">Fibisco Choco Mallows</div>
+<div class="product-price">₱18</div>
+<button class="add-cart-btn" onclick="addToCart('Fibisco Choco Mallows', 18)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Biscuits/Choco</span>
+<div class="product-name">Choco Mucho Bar</div>
+<div class="product-price">₱15</div>
+<button class="add-cart-btn" onclick="addToCart('Choco Mucho Bar', 15)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Biscuits/Choco</span>
+<div class="product-name">Oreo Vanilla (Pack)</div>
+<div class="product-price">₱18</div>
+<button class="add-cart-btn" onclick="addToCart('Oreo Vanilla (Pack)', 18)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Nuts</span>
+<div class="product-name">W. Nietes Peanuts</div>
+<div class="product-price">₱20</div>
+<button class="add-cart-btn" onclick="addToCart('W. Nietes Peanuts', 20)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Nuts</span>
+<div class="product-name">Happy Peanuts (Pack)</div>
+<div class="product-price">₱25</div>
+<button class="add-cart-btn" onclick="addToCart('Happy Peanuts (Pack)', 25)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Nuts</span>
+<div class="product-name">Nagaraya Cracker Nuts</div>
+<div class="product-price">₱15</div>
+<button class="add-cart-btn" onclick="addToCart('Nagaraya Cracker Nuts', 15)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Nuts</span>
+<div class="product-name">Boy Bawang Cornick</div>
+<div class="product-price">₱13</div>
+<button class="add-cart-btn" onclick="addToCart('Boy Bawang Cornick', 13)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Candy</span>
+<div class="product-name">Nestle/Kopiko Candy (Pack)</div>
+<div class="product-price">₱10</div>
+<button class="add-cart-btn" onclick="addToCart('Nestle/Kopiko Candy (Pack)', 10)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Candy</span>
+<div class="product-name">Fres Mint Candy</div>
+<div class="product-price">₱45</div>
+<button class="add-cart-btn" onclick="addToCart('Fres Mint Candy', 45)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Candy</span>
+<div class="product-name">White Rabbit Creamy Candy</div>
+<div class="product-price">₱18</div>
+<button class="add-cart-btn" onclick="addToCart('White Rabbit Creamy Candy', 18)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Candy</span>
+<div class="product-name">Doublemint / Juicy Fruit</div>
+<div class="product-price">₱10</div>
+<button class="add-cart-btn" onclick="addToCart('Doublemint / Juicy Fruit', 10)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Drinks (Soda)</span>
+<div class="product-name">Coca-Cola Mismo (300ml)</div>
+<div class="product-price">₱18</div>
+<button class="add-cart-btn" onclick="addToCart('Coca-Cola Mismo (300ml)', 18)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Drinks (Soda)</span>
+<div class="product-name">Coca-Cola (500ml PET)</div>
+<div class="product-price">₱25</div>
+<button class="add-cart-btn" onclick="addToCart('Coca-Cola (500ml PET)', 25)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Drinks (Soda)</span>
+<div class="product-name">Coca-Cola (1.5L Family)</div>
+<div class="product-price">₱52</div>
+<button class="add-cart-btn" onclick="addToCart('Coca-Cola (1.5L Family)', 52)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Drinks (Soda)</span>
+<div class="product-name">Sprite (Mismo)</div>
+<div class="product-price">₱18</div>
+<button class="add-cart-btn" onclick="addToCart('Sprite (Mismo)', 18)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Drinks (Soda)</span>
+<div class="product-name">Royal Tru-Orange (Mismo)</div>
+<div class="product-price">₱17</div>
+<button class="add-cart-btn" onclick="addToCart('Royal Tru-Orange (Mismo)', 17)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Drinks (Soda)</span>
+<div class="product-name">Pepsi / 7-Up (330ml)</div>
+<div class="product-price">₱20</div>
+<button class="add-cart-btn" onclick="addToCart('Pepsi / 7-Up (330ml)', 20)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Coffee</span>
+<div class="product-name">Nescafe Classic Stick</div>
+<div class="product-price">₱6</div>
+<button class="add-cart-btn" onclick="addToCart('Nescafe Classic Stick', 6)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Coffee</span>
+<div class="product-name">Nescafe 3-in-1 Original</div>
+<div class="product-price">₱6</div>
+<button class="add-cart-btn" onclick="addToCart('Nescafe 3-in-1 Original', 6)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Coffee</span>
+<div class="product-name">Kopiko Brown Coffee</div>
+<div class="product-price">₱6</div>
+<button class="add-cart-btn" onclick="addToCart('Kopiko Brown Coffee', 6)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Coffee</span>
+<div class="product-name">Great Taste White</div>
+<div class="product-price">₱6</div>
+<button class="add-cart-btn" onclick="addToCart('Great Taste White', 6)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Choco Drink</span>
+<div class="product-name">Milo Choco Drink (Sachet)</div>
+<div class="product-price">₱10</div>
+<button class="add-cart-btn" onclick="addToCart('Milo Choco Drink (Sachet)', 10)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Choco Drink</span>
+<div class="product-name">Ovaltine</div>
+<div class="product-price">₱10</div>
+<button class="add-cart-btn" onclick="addToCart('Ovaltine', 10)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Choco Drink</span>
+<div class="product-name">Energen Cereal Drink</div>
+<div class="product-price">₱10</div>
+<button class="add-cart-btn" onclick="addToCart('Energen Cereal Drink', 10)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Juice Powder</span>
+<div class="product-name">Royal/Tang Orange Powder</div>
+<div class="product-price">₱15</div>
+<button class="add-cart-btn" onclick="addToCart('Royal/Tang Orange Powder', 15)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Juice Powder</span>
+<div class="product-name">Zest-O Juice Drink</div>
+<div class="product-price">₱30</div>
+<button class="add-cart-btn" onclick="addToCart('Zest-O Juice Drink', 30)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Water</span>
+<div class="product-name">Wilkins Water (500ml)</div>
+<div class="product-price">₱18</div>
+<button class="add-cart-btn" onclick="addToCart('Wilkins Water (500ml)', 18)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Water</span>
+<div class="product-name">Absolute Water (500ml)</div>
+<div class="product-price">₱15</div>
+<button class="add-cart-btn" onclick="addToCart('Absolute Water (500ml)', 15)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Water</span>
+<div class="product-name">Nature's Spring (500ml)</div>
+<div class="product-price">₱12</div>
+<button class="add-cart-btn" onclick="addToCart('Nature's Spring (500ml)', 12)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Milk</span>
+<div class="product-name">Bear Brand Powder (Sachet)</div>
+<div class="product-price">₱20</div>
+<button class="add-cart-btn" onclick="addToCart('Bear Brand Powder (Sachet)', 20)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Milk</span>
+<div class="product-name">Birch Tree Milk (Sachet)</div>
+<div class="product-price">₱15</div>
+<button class="add-cart-btn" onclick="addToCart('Birch Tree Milk (Sachet)', 15)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Milk</span>
+<div class="product-name">Alaska Milk Powder (Sachet)</div>
+<div class="product-price">₱18</div>
+<button class="add-cart-btn" onclick="addToCart('Alaska Milk Powder (Sachet)', 18)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Condiments</span>
+<div class="product-name">Silver Swan Soy Sauce (200ml)</div>
+<div class="product-price">₱22</div>
+<button class="add-cart-btn" onclick="addToCart('Silver Swan Soy Sauce (200ml)', 22)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Condiments</span>
+<div class="product-name">Silver Swan Vinegar (200ml)</div>
+<div class="product-price">₱18</div>
+<button class="add-cart-btn" onclick="addToCart('Silver Swan Vinegar (200ml)', 18)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Condiments</span>
+<div class="product-name">Datu Puti Soy Sauce (200ml)</div>
+<div class="product-price">₱20</div>
+<button class="add-cart-btn" onclick="addToCart('Datu Puti Soy Sauce (200ml)', 20)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Condiments</span>
+<div class="product-name">Datu Puti Vinegar (200ml)</div>
+<div class="product-price">₱17</div>
+<button class="add-cart-btn" onclick="addToCart('Datu Puti Vinegar (200ml)', 17)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Condiments</span>
+<div class="product-name">UFC Banana Catsup</div>
+<div class="product-price">₱25</div>
+<button class="add-cart-btn" onclick="addToCart('UFC Banana Catsup', 25)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Condiments</span>
+<div class="product-name">UFC Tomato Sauce</div>
+<div class="product-price">₱30</div>
+<button class="add-cart-btn" onclick="addToCart('UFC Tomato Sauce', 30)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Cooking Oil</span>
+<div class="product-name">Cooking Oil (Lapad/350ml)</div>
+<div class="product-price">₱45</div>
+<button class="add-cart-btn" onclick="addToCart('Cooking Oil (Lapad/350ml)', 45)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Cooking Oil</span>
+<div class="product-name">Golden Fiesta Oil (500ml)</div>
+<div class="product-price">₱60</div>
+<button class="add-cart-btn" onclick="addToCart('Golden Fiesta Oil (500ml)', 60)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Cooking Oil</span>
+<div class="product-name">Minola Coconut Oil (500ml)</div>
+<div class="product-price">₱65</div>
+<button class="add-cart-btn" onclick="addToCart('Minola Coconut Oil (500ml)', 65)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Condiments</span>
+<div class="product-name">Patis (Fish Sauce) 100ml</div>
+<div class="product-price">₱20</div>
+<button class="add-cart-btn" onclick="addToCart('Patis (Fish Sauce) 100ml', 20)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Condiments</span>
+<div class="product-name">Magic Sarap Sachet</div>
+<div class="product-price">₱5</div>
+<button class="add-cart-btn" onclick="addToCart('Magic Sarap Sachet', 5)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Condiments</span>
+<div class="product-name">Knorr Chicken Cubes</div>
+<div class="product-price">₱6</div>
+<button class="add-cart-btn" onclick="addToCart('Knorr Chicken Cubes', 6)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Condiments</span>
+<div class="product-name">Ajinomoto Ginisa Mix</div>
+<div class="product-price">₱5</div>
+<button class="add-cart-btn" onclick="addToCart('Ajinomoto Ginisa Mix', 5)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Hair Care</span>
+<div class="product-name">Sunsilk Shampoo Sachet</div>
+<div class="product-price">₱7</div>
+<button class="add-cart-btn" onclick="addToCart('Sunsilk Shampoo Sachet', 7)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Hair Care</span>
+<div class="product-name">Pantene Shampoo Sachet</div>
+<div class="product-price">₱8</div>
+<button class="add-cart-btn" onclick="addToCart('Pantene Shampoo Sachet', 8)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Hair Care</span>
+<div class="product-name">Cream Silk Conditioner Sachet</div>
+<div class="product-price">₱7</div>
+<button class="add-cart-btn" onclick="addToCart('Cream Silk Conditioner Sachet', 7)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Body Care</span>
+<div class="product-name">Safeguard Soap (90g)</div>
+<div class="product-price">₱30</div>
+<button class="add-cart-btn" onclick="addToCart('Safeguard Soap (90g)', 30)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Body Care</span>
+<div class="product-name">Dove Beauty Bar</div>
+<div class="product-price">₱40</div>
+<button class="add-cart-btn" onclick="addToCart('Dove Beauty Bar', 40)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Body Care</span>
+<div class="product-name">Silka Papaya Soap</div>
+<div class="product-price">₱25</div>
+<button class="add-cart-btn" onclick="addToCart('Silka Papaya Soap', 25)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Oral Care</span>
+<div class="product-name">Colgate Toothpaste Sachet</div>
+<div class="product-price">₱10</div>
+<button class="add-cart-btn" onclick="addToCart('Colgate Toothpaste Sachet', 10)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Oral Care</span>
+<div class="product-name">Colgate Tube (Small)</div>
+<div class="product-price">₱35</div>
+<button class="add-cart-btn" onclick="addToCart('Colgate Tube (Small)', 35)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Oral Care</span>
+<div class="product-name">Close Up Toothpaste</div>
+<div class="product-price">₱25</div>
+<button class="add-cart-btn" onclick="addToCart('Close Up Toothpaste', 25)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Oral Care</span>
+<div class="product-name">Toothbrush (Standard)</div>
+<div class="product-price">₱20</div>
+<button class="add-cart-btn" onclick="addToCart('Toothbrush (Standard)', 20)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Laundry</span>
+<div class="product-name">Tide Powder (Twin Pack)</div>
+<div class="product-price">₱15</div>
+<button class="add-cart-btn" onclick="addToCart('Tide Powder (Twin Pack)', 15)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Laundry</span>
+<div class="product-name">Surf Powder (Tingi)</div>
+<div class="product-price">₱8</div>
+<button class="add-cart-btn" onclick="addToCart('Surf Powder (Tingi)', 8)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Laundry</span>
+<div class="product-name">Champion Bar Soap</div>
+<div class="product-price">₱25</div>
+<button class="add-cart-btn" onclick="addToCart('Champion Bar Soap', 25)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Laundry</span>
+<div class="product-name">Breeze Liquid Detergent</div>
+<div class="product-price">₱30</div>
+<button class="add-cart-btn" onclick="addToCart('Breeze Liquid Detergent', 30)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Kitchen Clean</span>
+<div class="product-name">Joy Dishwashing Liquid Sachet</div>
+<div class="product-price">₱10</div>
+<button class="add-cart-btn" onclick="addToCart('Joy Dishwashing Liquid Sachet', 10)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Kitchen Clean</span>
+<div class="product-name">Axion Dishwashing Paste</div>
+<div class="product-price">₱25</div>
+<button class="add-cart-btn" onclick="addToCart('Axion Dishwashing Paste', 25)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Rice/Grains</span>
+<div class="product-name">Rice - Premium (1 Kg)</div>
+<div class="product-price">₱60</div>
+<button class="add-cart-btn" onclick="addToCart('Rice - Premium (1 Kg)', 60)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Rice/Grains</span>
+<div class="product-name">Rice - Regular (1 Kg)</div>
+<div class="product-price">₱52</div>
+<button class="add-cart-btn" onclick="addToCart('Rice - Regular (1 Kg)', 52)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Rice/Grains</span>
+<div class="product-name">Rice (1 Cup Takal)</div>
+<div class="product-price">₱15</div>
+<button class="add-cart-btn" onclick="addToCart('Rice (1 Cup Takal)', 15)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Cooking Needs</span>
+<div class="product-name">Refined Sugar (1/4 kg)</div>
+<div class="product-price">₱28</div>
+<button class="add-cart-btn" onclick="addToCart('Refined Sugar (1/4 kg)', 28)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Cooking Needs</span>
+<div class="product-name">Rock Salt (1 Pack)</div>
+<div class="product-price">₱10</div>
+<button class="add-cart-btn" onclick="addToCart('Rock Salt (1 Pack)', 10)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Cooking Needs</span>
+<div class="product-name">Cooking Oil (Tingi Plastic)</div>
+<div class="product-price">₱15</div>
+<button class="add-cart-btn" onclick="addToCart('Cooking Oil (Tingi Plastic)', 15)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Cooking Needs</span>
+<div class="product-name">Soy Sauce (Tingi Plastic)</div>
+<div class="product-price">₱10</div>
+<button class="add-cart-btn" onclick="addToCart('Soy Sauce (Tingi Plastic)', 10)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Cooking Needs</span>
+<div class="product-name">Vinegar (Tingi Plastic)</div>
+<div class="product-price">₱10</div>
+<button class="add-cart-btn" onclick="addToCart('Vinegar (Tingi Plastic)', 10)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Spices</span>
+<div class="product-name">Black Pepper (Pimienta)</div>
+<div class="product-price">₱5</div>
+<button class="add-cart-btn" onclick="addToCart('Black Pepper (Pimienta)', 5)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Spices</span>
+<div class="product-name">Garlic Powder</div>
+<div class="product-price">₱10</div>
+<button class="add-cart-btn" onclick="addToCart('Garlic Powder', 10)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Spices</span>
+<div class="product-name">Chili Powder</div>
+<div class="product-price">₱8</div>
+<button class="add-cart-btn" onclick="addToCart('Chili Powder', 8)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Tobacco</span>
+<div class="product-name">Marlboro Red (1 Stick)</div>
+<div class="product-price">₱8</div>
+<button class="add-cart-btn" onclick="addToCart('Marlboro Red (1 Stick)', 8)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Tobacco</span>
+<div class="product-name">Fortune Red (1 Stick)</div>
+<div class="product-price">₱6</div>
+<button class="add-cart-btn" onclick="addToCart('Fortune Red (1 Stick)', 6)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Tobacco</span>
+<div class="product-name">Mighty Green (1 Stick)</div>
+<div class="product-price">₱5</div>
+<button class="add-cart-btn" onclick="addToCart('Mighty Green (1 Stick)', 5)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Tobacco</span>
+<div class="product-name">Marlboro Red (Pack)</div>
+<div class="product-price">₱115</div>
+<button class="add-cart-btn" onclick="addToCart('Marlboro Red (Pack)', 115)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Tobacco</span>
+<div class="product-name">Philip Morris (Pack)</div>
+<div class="product-price">₱100</div>
+<button class="add-cart-btn" onclick="addToCart('Philip Morris (Pack)', 100)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Tobacco</span>
+<div class="product-name">Fortune (Pack)</div>
+<div class="product-price">₱80</div>
+<button class="add-cart-btn" onclick="addToCart('Fortune (Pack)', 80)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Fuel</span>
+<div class="product-name">Charcoal / Uling (1 Pack)</div>
+<div class="product-price">₱30</div>
+<button class="add-cart-btn" onclick="addToCart('Charcoal / Uling (1 Pack)', 30)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Fuel</span>
+<div class="product-name">LPG Solane Refill (11kg)</div>
+<div class="product-price">₱980</div>
+<button class="add-cart-btn" onclick="addToCart('LPG Solane Refill (11kg)', 980)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Fuel</span>
+<div class="product-name">LPG Fiesta Gas (11kg)</div>
+<div class="product-price">₱950</div>
+<button class="add-cart-btn" onclick="addToCart('LPG Fiesta Gas (11kg)', 950)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Household</span>
+<div class="product-name">Mosquito Coil / Katol</div>
+<div class="product-price">₱5</div>
+<button class="add-cart-btn" onclick="addToCart('Mosquito Coil / Katol', 5)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Household</span>
+<div class="product-name">Matches / Posporo</div>
+<div class="product-price">₱8</div>
+<button class="add-cart-btn" onclick="addToCart('Matches / Posporo', 8)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Household</span>
+<div class="product-name">Lighter (Disposable)</div>
+<div class="product-price">₱15</div>
+<button class="add-cart-btn" onclick="addToCart('Lighter (Disposable)', 15)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Household</span>
+<div class="product-name">Candle (Esperma) 2pcs</div>
+<div class="product-price">₱15</div>
+<button class="add-cart-btn" onclick="addToCart('Candle (Esperma) 2pcs', 15)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Household</span>
+<div class="product-name">Novena Candle (Large)</div>
+<div class="product-price">₱50</div>
+<button class="add-cart-btn" onclick="addToCart('Novena Candle (Large)', 50)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Household</span>
+<div class="product-name">LED Flashlight (Small)</div>
+<div class="product-price">₱50</div>
+<button class="add-cart-btn" onclick="addToCart('LED Flashlight (Small)', 50)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Household</span>
+<div class="product-name">Batteries AA (2pcs)</div>
+<div class="product-price">₱30</div>
+<button class="add-cart-btn" onclick="addToCart('Batteries AA (2pcs)', 30)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Household</span>
+<div class="product-name">Garbage Bag (Small)</div>
+<div class="product-price">₱5</div>
+<button class="add-cart-btn" onclick="addToCart('Garbage Bag (Small)', 5)">Add to Cart</button>
+</div></div>
+</section>
+<section class="section" style="background:linear-gradient(135deg,#fff9e6,#fff);border-radius:20px;margin:30px auto;padding:30px;">
+<h3 style="text-align:center;color:#004E89;margin-bottom:20px;">🚚 Order via Sulbad Agency</h3>
+<div style="text-align:center;">
+<p style="margin-bottom:15px;">We'll deliver your order within 24 hours!</p>
+<p style="color:#F20519;font-weight:700;font-size:1.1rem;">📞 +63 9695176093 | 📧 sulbadstemai@gmail.com</p>
+<p style="color:#636e72;font-size:0.9rem;margin-top:10px;">Free delivery for orders over ₱1,000</p>
+</div>
+</section>
+<footer class="footer">
+<div class="footer-brand">🏝️ Sulbad Olango Mart</div>
+<div style="margin-bottom:15px;">Website created by <a href="https://sulbadstemai.com/" target="_blank">Sulbad STEM AI</a></div>
+<div>
+<a href="https://www.facebook.com/SulbadSTEM/" target="_blank">📘 Facebook</a> | 
+📞 +63 9695176093 | 📧 sulbadstemai@gmail.com
+</div>
+<div style="margin-top:15px;font-size:0.9rem;opacity:0.8;">
+© 2026 Sulbad Olango Mart. Serving Olango Island, Cebu, Philippines 🇵🇭
+</div>
+</footer>
+<div class="modal-overlay" id="contactModal">
+<div class="modal">
+<div class="modal-header">
+<span style="font-weight:700;font-size:1.1rem;">📧 Contact Us</span>
+<button onclick="closeContactModal()" style="background:white;border:none;width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:1.2rem;">×</button>
+</div>
+<div class="modal-body">
+<form action="https://formsubmit.co/sulbadstemai@gmail.com" method="POST">
+<input type="hidden" name="_subject" value="New Inquiry - Sulbad Olango Mart">
+<input type="hidden" name="_captcha" value="false">
+<div class="form-group">
+<label class="form-label">👤 Name *</label>
+<input type="text" name="name" class="form-input" required>
+</div>
+<div class="form-group">
+<label class="form-label">📱 Mobile Number *</label>
+<input type="tel" name="phone" class="form-input" required>
+</div>
+<div class="form-group">
+<label class="form-label">💬 Viber Number</label>
+<input type="tel" name="viber" class="form-input" placeholder="If available">
+</div>
+<div class="form-group">
+<label class="form-label">📘 Facebook Name</label>
+<input type="text" name="facebook" class="form-input" placeholder="For easier searching">
+</div>
+<div class="form-group">
+<label class="form-label">📧 Email *</label>
+<input type="email" name="email" class="form-input" placeholder="Important for updates" required>
+</div>
+<div class="form-group">
+<label class="form-label">📍 Address *</label>
+<input type="text" name="address" class="form-input" placeholder="Sitio / Purok / Landmark" required>
+</div>
+<div class="form-group">
+<label class="form-label">🏘️ Barangay *</label>
+<select name="barangay" class="form-select" required>
+<option value="">Select Barangay</option>
+<option>Baring</option><option>Sabang</option><option>Talima</option>
+<option>Tingo</option><option>Caw-oy</option><option>San Vicente</option>
+<option>Pangan-an</option><option>Gilutongan</option><option>Caohagan</option>
+<option>Caubian</option><option>Cawhagan</option>
+</select>
+</div>
+<div class="form-group">
+<label class="form-label">📋 How can we help you?</label>
+<select name="inquiry_type" class="form-select">
+<option>📦 Follow-up on Order</option>
+<option>📢 I want to Advertise (₱10/day)</option>
+<option>🌐 Website Creation Service</option>
+<option>📍 Google Map Setup & Management</option>
+<option>🤝 Merchant Partnership</option>
+<option>✨ Other Special Request</option>
+</select>
+</div>
+<div class="form-group">
+<label class="form-label">📝 Message</label>
+<textarea name="message" class="form-textarea" placeholder="How can we help you?"></textarea>
+</div>
+<p class="notice-text">Note: We will contact you within 24 hours. Please ensure your Email is correct.</p>
+<button type="submit" class="submit-btn">Send Inquiry 📤</button>
+</form>
+</div>
+</div>
+</div>
+<div class="cart-widget" onclick="viewCart()">🛒 Cart <span id="cartCount">0</span></div>
+<script>
+let cart = [];
+function addToCart(name, price) {
+    cart.push({name: name, price: price});
+    document.getElementById('cartCount').textContent = cart.length;
+    alert('Added to cart: ' + name + ' - ₱' + price);
+}
+function viewCart() {
+    if (cart.length === 0) { alert('Your cart is empty!'); return; }
+    let total = 0;
+    let details = '=== YOUR ORDER ===
+
+';
+    cart.forEach((item, i) => { details += (i+1) + '. ' + item.name + ' - ₱' + item.price + '
+'; total += item.price; });
+    details += '
+Total: ₱' + total;
+    details += '
+
+To order, contact us:';
+    details += '
+📞 +63 9695176093';
+    details += '
+📧 sulbadstemai@gmail.com';
+    alert(details);
+}
+function openContactModal(){document.getElementById('contactModal').classList.add('active');}
+function closeContactModal(){document.getElementById('contactModal').classList.remove('active');}
+document.addEventListener('click',function(e){if(e.target.classList.contains('modal-overlay'))e.target.classList.remove('active');});
+</script>
+</body>
+</html>

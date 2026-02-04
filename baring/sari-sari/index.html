@@ -1,0 +1,170 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Sari-Sari Store in Baring | Sulbad Olango Mart</title><style>:root { --primary: #FF6B35; --secondary: #004E89; --accent: #1A936F; --highlight: #F7B801; --coral: #FF6B6B; --sand: #F4E4C1; --light: #FFFDF7; --dark: #2D3436; --gray: #636E72; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: linear-gradient(180deg, var(--light) 0%, var(--sand) 100%); min-height: 100vh; color: var(--dark); line-height: 1.6; }
+.header { background: linear-gradient(90deg, var(--secondary) 0%, #003d6b 100%); color: white; padding: 12px 20px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+.header-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+.header-brand { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+.header-brand a { color: white; text-decoration: none; display: flex; align-items: center; gap: 8px; }
+.header-info { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.nav-btn { background: rgba(255,255,255,0.15); color: white; text-decoration: none; padding: 10px 20px; border-radius: 25px; font-weight: 600; font-size: 0.9rem; transition: all 0.3s; border: 1px solid rgba(255,255,255,0.3); backdrop-filter: blur(10px); }
+.nav-btn:hover { background: var(--primary); transform: translateY(-2px); box-shadow: 0 4px 15px rgba(255,107,53,0.4); }
+.nav-btn.primary { background: var(--primary); border-color: var(--primary); }
+.nav-btn.accent { background: var(--accent); border-color: var(--accent); }
+.nav-btn.warning { background: var(--coral); border-color: var(--coral); }
+.hero { background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%); padding: 60px 20px; text-align: center; position: relative; overflow: hidden; }
+.hero-title { font-size: 3.5rem; font-weight: 900; color: white; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); margin-bottom: 10px; position: relative; }
+.hero-tagline { font-size: 1.4rem; color: var(--highlight); font-weight: 600; position: relative; }
+.slogan-banner { background: linear-gradient(90deg, var(--accent) 0%, var(--secondary) 100%); color: white; padding: 15px 20px; text-align: center; font-size: 1.1rem; font-weight: 600; }
+.ad-section { background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 30px 20px; }
+.ad-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; }
+.ad-card { background: white; border-radius: 15px; padding: 25px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.1); transition: transform 0.3s; }
+.ad-card:hover { transform: translateY(-5px); }
+.ad-title { font-size: 1.3rem; font-weight: 800; color: var(--secondary); margin-bottom: 15px; }
+.ad-price { font-size: 2rem; font-weight: 900; color: var(--primary); margin: 10px 0; }
+.ad-note { font-size: 0.9rem; color: var(--gray); margin-top: 10px; }
+.ad-contact { background: linear-gradient(135deg, var(--secondary), var(--accent)); color: white; padding: 20px; border-radius: 15px; margin-top: 20px; max-width: 800px; margin-left: auto; margin-right: auto; text-align: center; }
+.breadcrumb { background: var(--sand); padding: 15px 20px; border-bottom: 1px solid rgba(0,0,0,0.1); }
+.breadcrumb-content { max-width: 1200px; margin: 0 auto; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; font-size: 0.9rem; }
+.breadcrumb a { color: var(--secondary); text-decoration: none; font-weight: 600; }
+.breadcrumb a:hover { color: var(--primary); }
+.breadcrumb-current { font-weight: 700; color: var(--primary); }
+.section-title { font-size: 2rem; font-weight: 800; color: var(--dark); text-align: center; margin-bottom: 30px; position: relative; display: inline-block; left: 50%; transform: translateX(-50%); padding: 10px 30px; background: white; border-radius: 50px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+.category-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.category-card { background: white; border-radius: 20px; padding: 30px 20px; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.08); transition: all 0.3s; cursor: pointer; text-decoration: none; color: var(--dark); display: block; border: 2px solid transparent; }
+.category-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.15); border-color: var(--primary); }
+.category-icon { font-size: 3.5rem; margin-bottom: 15px; }
+.category-name { font-size: 1.3rem; font-weight: 800; margin-bottom: 8px; color: var(--secondary); }
+.category-desc { font-size: 0.9rem; color: var(--gray); }
+.barangay-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 15px; max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+.barangay-card { background: white; border-radius: 15px; padding: 25px 15px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.08); transition: all 0.3s; cursor: pointer; text-decoration: none; color: var(--dark); display: block; }
+.barangay-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.15); background: linear-gradient(135deg, var(--highlight) 0%, var(--sand) 100%); }
+.barangay-icon { font-size: 2.5rem; margin-bottom: 10px; }
+.barangay-name { font-size: 1.1rem; font-weight: 700; }
+.store-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.store-card { background: white; border-radius: 20px; padding: 25px; text-decoration: none; color: var(--dark); box-shadow: 0 8px 25px rgba(0,0,0,0.08); transition: all 0.3s; display: block; border: 2px solid transparent; }
+.store-card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(0,0,0,0.15); border-color: var(--accent); }
+.store-icon { font-size: 3rem; margin-bottom: 15px; }
+.store-name { font-size: 1.3rem; font-weight: 800; margin-bottom: 8px; color: var(--secondary); }
+.store-type { font-size: 0.95rem; color: var(--accent); font-weight: 600; margin-bottom: 10px; }
+.store-address { font-size: 0.9rem; color: var(--gray); margin-bottom: 10px; line-height: 1.5; }
+.store-phone { font-size: 1rem; font-weight: 700; color: var(--primary); }
+.store-hero { background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%); padding: 50px 20px; text-align: center; color: white; }
+.store-hero-icon { font-size: 4rem; margin-bottom: 15px; }
+.store-hero-name { font-size: 2.5rem; font-weight: 900; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); margin-bottom: 10px; }
+.store-image-section { max-width: 800px; margin: 30px auto; padding: 0 20px; }
+.store-image { width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+.info-box { background: white; border-radius: 15px; padding: 25px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); max-width: 800px; margin: 20px auto; }
+.info-label { font-size: 0.85rem; color: var(--gray); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+.info-value { font-size: 1.1rem; color: var(--dark); line-height: 1.6; }
+.product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.product-card { background: white; border-radius: 15px; padding: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); transition: all 0.3s; border-left: 4px solid var(--accent); position: relative; }
+.product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.12); }
+.product-name { font-size: 1rem; font-weight: 700; color: var(--dark); margin-bottom: 10px; }
+.product-price { font-size: 1.4rem; font-weight: 800; color: var(--primary); }
+.product-note { font-size: 0.85rem; color: var(--gray); margin-top: 8px; }
+.product-category { font-size: 0.75rem; color: white; background: var(--accent); padding: 3px 10px; border-radius: 10px; display: inline-block; margin-bottom: 8px; }
+.add-to-cart { background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 25px; cursor: pointer; font-weight: 600; margin-top: 10px; width: 100%; transition: all 0.3s; }
+.add-to-cart:hover { background: var(--secondary); transform: scale(1.02); }
+.footer { background: linear-gradient(135deg, var(--dark) 0%, #1a1a2e 100%); color: white; padding: 40px 20px; text-align: center; margin-top: 60px; }
+.footer-brand { font-size: 1.6rem; font-weight: 800; color: var(--highlight); margin-bottom: 15px; }
+.footer-credit { font-size: 1rem; color: var(--sand); margin-bottom: 15px; }
+.footer-credit a { color: var(--highlight); text-decoration: none; font-weight: 600; }
+.footer-copy { margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; opacity: 0.8; }
+.content-section { max-width: 1200px; margin: 50px auto; padding: 0 20px; }
+.modal-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7); z-index: 2000; justify-content: center; align-items: center; padding: 20px; }
+.modal-overlay.active { display: flex; }
+.modal { background: var(--light); border-radius: 20px; max-width: 500px; width: 100%; max-height: 90vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+.modal-header { background: linear-gradient(90deg, var(--secondary) 0%, var(--primary) 100%); color: white; padding: 20px; display: flex; justify-content: space-between; align-items: center; }
+.modal-close { background: white; border: none; width: 35px; height: 35px; border-radius: 50%; font-size: 1.2rem; cursor: pointer; }
+.modal-body { padding: 25px; }
+.form-group { margin-bottom: 18px; }
+.form-label { display: block; font-weight: 700; margin-bottom: 8px; color: var(--dark); }
+.form-input, .form-select, .form-textarea { width: 100%; padding: 14px; border: 2px solid #e0e0e0; border-radius: 12px; font-size: 1rem; transition: border-color 0.3s; }
+.form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--primary); outline: none; }
+.form-textarea { min-height: 120px; resize: vertical; }
+.submit-btn { width: 100%; background: linear-gradient(90deg, var(--accent) 0%, #147a5c 100%); color: white; border: none; padding: 16px; border-radius: 12px; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: all 0.3s; }
+.submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(26,147,111,0.4); }
+.info-page-content { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+.info-card { background: white; border-radius: 20px; padding: 30px; margin-bottom: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.08); }
+.info-card h3 { color: var(--secondary); margin-bottom: 20px; font-size: 1.5rem; display: flex; align-items: center; gap: 10px; }
+.info-card table { width: 100%; border-collapse: collapse; }
+.info-card th { background: var(--secondary); color: white; padding: 15px; text-align: left; }
+.info-card td { padding: 12px 15px; border-bottom: 1px solid #eee; }
+.warning-box { background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%); border-left: 5px solid var(--highlight); border-radius: 10px; padding: 20px; margin: 20px 0; }
+.featured-stores { background: linear-gradient(135deg, var(--sand) 0%, white 100%); padding: 40px 20px; margin: 30px 0; border-radius: 20px; }
+.featured-title { text-align: center; font-size: 1.5rem; font-weight: 800; color: var(--secondary); margin-bottom: 25px; }
+.featured-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; }
+.featured-card { background: white; border-radius: 15px; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-left: 4px solid var(--primary); }
+.featured-card h4 { color: var(--secondary); margin-bottom: 10px; }
+.featured-card .price { color: var(--primary); font-weight: 700; font-size: 1.2rem; }
+.package-card { background: white; border-radius: 15px; padding: 25px; margin-bottom: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); border-top: 4px solid var(--accent); }
+.package-card h4 { color: var(--secondary); font-size: 1.3rem; margin-bottom: 10px; }
+.package-price { font-size: 2rem; font-weight: 900; color: var(--primary); margin: 10px 0; }
+.package-features { list-style: none; margin-top: 15px; }
+.package-features li { padding: 8px 0; border-bottom: 1px dashed #eee; display: flex; align-items: center; gap: 10px; }
+.package-features li::before { content: "✓"; color: var(--accent); font-weight: bold; }
+.proxy-notice { background: linear-gradient(135deg, var(--highlight) 0%, var(--sand) 100%); padding: 20px; border-radius: 15px; margin: 20px auto; max-width: 800px; text-align: center; }
+.proxy-notice h3 { color: var(--secondary); margin-bottom: 10px; }
+.proxy-fee { font-size: 1.5rem; font-weight: 800; color: var(--primary); }
+.cart-widget { position: fixed; bottom: 20px; right: 20px; background: var(--primary); color: white; padding: 15px 25px; border-radius: 50px; box-shadow: 0 5px 20px rgba(0,0,0,0.3); cursor: pointer; z-index: 1000; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+.cart-widget:hover { transform: scale(1.05); }
+.cart-count { background: white; color: var(--primary); padding: 2px 8px; border-radius: 50%; font-size: 0.9rem; }
+@media (max-width: 768px) { .hero-title { font-size: 2.2rem; } .header-content { flex-direction: column; } .category-grid, .store-grid { grid-template-columns: 1fr; } .ad-grid { grid-template-columns: 1fr; } }</style></head><body>
+<header class="header"><div class="header-content"><div class="header-brand"><a href="../../index.html">🏝️ Sulbad Olango Mart</a></div><div class="header-info"><a href="../../index.html" class="nav-btn primary">🏠 HOME</a><button class="nav-btn accent" onclick="openContactModal()">📧 Contact Us</button><a href="tel:+639695176093" class="nav-btn">📞 Call</a><a href="../../ferry-info.html" class="nav-btn">⛴️ Ferry Info</a><a href="../../typhoon-updates.html" class="nav-btn warning">🌀 Typhoon</a></div></div></header>
+<nav class="breadcrumb"><div class="breadcrumb-content"><a href="../../index.html">Home</a><span>›</span><a href="../index.html">Baring</a><span>›</span><span class="breadcrumb-current">Sari-Sari Store</span></div></nav>
+<section class="store-hero"><div class="store-hero-icon">🏪</div><h1 class="store-hero-name">Sari-Sari Store</h1></section>
+
+<section class="content-section"><h2 class="section-title">🏪 Available Stores (2)</h2><div class="store-grid"><a href="store-1.html" class="store-card"><div class="store-icon">🏪</div><div class="store-name">Baring Sari-Sari Store 1</div><div class="store-type">Sari-Sari Store</div><div class="store-address">📍 Purok 1, Sitio Lubi-lubi, Near Basketball Court, Barangay Baring</div><div class="store-phone">📞 +63 996 606 3458</div></a><a href="store-2.html" class="store-card"><div class="store-icon">🏪</div><div class="store-name">Baring Sari-Sari Store 2</div><div class="store-type">Sari-Sari Store</div><div class="store-address">📍 Purok 2, Sitio Lubi-lubi, Near Basketball Court, Barangay Baring</div><div class="store-phone">📞 +63 970 137 2414</div></a></div></section>
+<section class="content-section"><h2 class="section-title">📋 Products & Services</h2><div class="product-grid"><div class="product-card"><span class="product-category">Canned</span><div class="product-name">Bear Brand Sardines (155g)</div><div class="product-price">₱20</div><button class="add-to-cart" onclick="addToCart('Bear Brand Sardines (155g)', 20)">Add to Cart</button></div><div class="product-card"><span class="product-category">Canned</span><div class="product-name">555 Sardines Tomato Sauce</div><div class="product-price">₱28</div><button class="add-to-cart" onclick="addToCart('555 Sardines Tomato Sauce', 28)">Add to Cart</button></div><div class="product-card"><span class="product-category">Canned</span><div class="product-name">Century Tuna Flakes in Oil</div><div class="product-price">₱44</div><button class="add-to-cart" onclick="addToCart('Century Tuna Flakes in Oil', 44)">Add to Cart</button></div><div class="product-card"><span class="product-category">Canned</span><div class="product-name">Argentina Corned Beef (150g)</div><div class="product-price">₱42</div><button class="add-to-cart" onclick="addToCart('Argentina Corned Beef (150g)', 42)">Add to Cart</button></div><div class="product-card"><span class="product-category">Canned</span><div class="product-name">CDO Meat Loaf</div><div class="product-price">₱25</div><button class="add-to-cart" onclick="addToCart('CDO Meat Loaf', 25)">Add to Cart</button></div><div class="product-card"><span class="product-category">Canned</span><div class="product-name">Del Monte Corned Beef</div><div class="product-price">₱45</div><button class="add-to-cart" onclick="addToCart('Del Monte Corned Beef', 45)">Add to Cart</button></div><div class="product-card"><span class="product-category">Noodles</span><div class="product-name">Lucky Me! Pancit Canton Calamansi</div><div class="product-price">₱16</div><button class="add-to-cart" onclick="addToCart('Lucky Me! Pancit Canton Calamansi', 16)">Add to Cart</button></div><div class="product-card"><span class="product-category">Noodles</span><div class="product-name">Lucky Me! Beef Mami</div><div class="product-price">₱12</div><button class="add-to-cart" onclick="addToCart('Lucky Me! Beef Mami', 12)">Add to Cart</button></div><div class="product-card"><span class="product-category">Noodles</span><div class="product-name">Nissin Cup Noodles Seafood</div><div class="product-price">₱28</div><button class="add-to-cart" onclick="addToCart('Nissin Cup Noodles Seafood', 28)">Add to Cart</button></div><div class="product-card"><span class="product-category">Noodles</span><div class="product-name">Lucky Me! Pancit Canton Original</div><div class="product-price">₱15</div><button class="add-to-cart" onclick="addToCart('Lucky Me! Pancit Canton Original', 15)">Add to Cart</button></div><div class="product-card"><span class="product-category">Noodles</span><div class="product-name">Payless Pancit Canton</div><div class="product-price">₱11</div><button class="add-to-cart" onclick="addToCart('Payless Pancit Canton', 11)">Add to Cart</button></div><div class="product-card"><span class="product-category">Snacks</span><div class="product-name">Piattos Cheese (40g)</div><div class="product-price">₱25</div><button class="add-to-cart" onclick="addToCart('Piattos Cheese (40g)', 25)">Add to Cart</button></div><div class="product-card"><span class="product-category">Snacks</span><div class="product-name">SkyFlakes Crackers Pack</div><div class="product-price">₱8</div><button class="add-to-cart" onclick="addToCart('SkyFlakes Crackers Pack', 8)">Add to Cart</button></div><div class="product-card"><span class="product-category">Snacks</span><div class="product-name">Fudgee Barr Chocolate</div><div class="product-price">₱8</div><button class="add-to-cart" onclick="addToCart('Fudgee Barr Chocolate', 8)">Add to Cart</button></div><div class="product-card"><span class="product-category">Snacks</span><div class="product-name">Ding Dong Mixed Nuts</div><div class="product-price">₱20</div><button class="add-to-cart" onclick="addToCart('Ding Dong Mixed Nuts', 20)">Add to Cart</button></div><div class="product-card"><span class="product-category">Snacks</span><div class="product-name">Chippy Corn Chips</div><div class="product-price">₱10</div><button class="add-to-cart" onclick="addToCart('Chippy Corn Chips', 10)">Add to Cart</button></div><div class="product-card"><span class="product-category">Snacks</span><div class="product-name">Clover Chips Cheese</div><div class="product-price">₱8</div><button class="add-to-cart" onclick="addToCart('Clover Chips Cheese', 8)">Add to Cart</button></div><div class="product-card"><span class="product-category">Drinks</span><div class="product-name">Coca-Cola Mismo (300ml)</div><div class="product-price">₱18</div><button class="add-to-cart" onclick="addToCart('Coca-Cola Mismo (300ml)', 18)">Add to Cart</button></div><div class="product-card"><span class="product-category">Drinks</span><div class="product-name">Royal Tru-Orange Glass</div><div class="product-price">₱15</div><button class="add-to-cart" onclick="addToCart('Royal Tru-Orange Glass', 15)">Add to Cart</button></div><div class="product-card"><span class="product-category">Drinks</span><div class="product-name">Nescafe Stick Original</div><div class="product-price">₱5</div><button class="add-to-cart" onclick="addToCart('Nescafe Stick Original', 5)">Add to Cart</button></div><div class="product-card"><span class="product-category">Drinks</span><div class="product-name">Kopiko Brown Coffee</div><div class="product-price">₱6</div><button class="add-to-cart" onclick="addToCart('Kopiko Brown Coffee', 6)">Add to Cart</button></div><div class="product-card"><span class="product-category">Drinks</span><div class="product-name">Wilkins Distilled Water (500ml)</div><div class="product-price">₱18</div><button class="add-to-cart" onclick="addToCart('Wilkins Distilled Water (500ml)', 18)">Add to Cart</button></div><div class="product-card"><span class="product-category">Alcohol</span><div class="product-name">Red Horse Beer (500ml)</div><div class="product-price">₱45</div><button class="add-to-cart" onclick="addToCart('Red Horse Beer (500ml)', 45)">Add to Cart</button></div><div class="product-card"><span class="product-category">Drinks</span><div class="product-name">Sprite (330ml)</div><div class="product-price">₱16</div><button class="add-to-cart" onclick="addToCart('Sprite (330ml)', 16)">Add to Cart</button></div><div class="product-card"><span class="product-category">Cooking</span><div class="product-name">Silver Swan Soy Sauce Pouch</div><div class="product-price">₱10</div><button class="add-to-cart" onclick="addToCart('Silver Swan Soy Sauce Pouch', 10)">Add to Cart</button></div><div class="product-card"><span class="product-category">Cooking</span><div class="product-name">Magic Sarap Sachet</div><div class="product-price">₱5</div><button class="add-to-cart" onclick="addToCart('Magic Sarap Sachet', 5)">Add to Cart</button></div><div class="product-card"><span class="product-category">Cooking</span><div class="product-name">Cooking Oil Tingi</div><div class="product-price">₱15</div><button class="add-to-cart" onclick="addToCart('Cooking Oil Tingi', 15)">Add to Cart</button></div><div class="product-card"><span class="product-category">Cooking</span><div class="product-name">Refined Sugar (1/4 kg)</div><div class="product-price">₱25</div><button class="add-to-cart" onclick="addToCart('Refined Sugar (1/4 kg)', 25)">Add to Cart</button></div><div class="product-card"><span class="product-category">Cooking</span><div class="product-name">Datu Puti Vinegar (200ml)</div><div class="product-price">₱15</div><button class="add-to-cart" onclick="addToCart('Datu Puti Vinegar (200ml)', 15)">Add to Cart</button></div><div class="product-card"><span class="product-category">Cooking</span><div class="product-name">Ajinomoto MSG (10g)</div><div class="product-price">₱5</div><button class="add-to-cart" onclick="addToCart('Ajinomoto MSG (10g)', 5)">Add to Cart</button></div><div class="product-card"><span class="product-category">Hygiene</span><div class="product-name">Sunsilk Shampoo Sachet</div><div class="product-price">₱6</div><button class="add-to-cart" onclick="addToCart('Sunsilk Shampoo Sachet', 6)">Add to Cart</button></div><div class="product-card"><span class="product-category">Hygiene</span><div class="product-name">Safeguard Soap (60g)</div><div class="product-price">₱25</div><button class="add-to-cart" onclick="addToCart('Safeguard Soap (60g)', 25)">Add to Cart</button></div><div class="product-card"><span class="product-category">Hygiene</span><div class="product-name">Colgate Toothpaste Sachet</div><div class="product-price">₱10</div><button class="add-to-cart" onclick="addToCart('Colgate Toothpaste Sachet', 10)">Add to Cart</button></div><div class="product-card"><span class="product-category">Hygiene</span><div class="product-name">Dove Beauty Bar</div><div class="product-price">₱38</div><button class="add-to-cart" onclick="addToCart('Dove Beauty Bar', 38)">Add to Cart</button></div><div class="product-card"><span class="product-category">Household</span><div class="product-name">Surf Powder Detergent Tingi</div><div class="product-price">₱8</div><button class="add-to-cart" onclick="addToCart('Surf Powder Detergent Tingi', 8)">Add to Cart</button></div><div class="product-card"><span class="product-category">Household</span><div class="product-name">Tide Detergent (200g)</div><div class="product-price">₱35</div><button class="add-to-cart" onclick="addToCart('Tide Detergent (200g)', 35)">Add to Cart</button></div><div class="product-card"><span class="product-category">Household</span><div class="product-name">Joy Dishwashing (200ml)</div><div class="product-price">₱30</div><button class="add-to-cart" onclick="addToCart('Joy Dishwashing (200ml)', 30)">Add to Cart</button></div><div class="product-card"><span class="product-category">Household</span><div class="product-name">Charcoal (Uling) 1 Pack</div><div class="product-price">₱20</div><button class="add-to-cart" onclick="addToCart('Charcoal (Uling) 1 Pack', 20)">Add to Cart</button></div><div class="product-card"><span class="product-category">Household</span><div class="product-name">Mosquito Coil (Katol)</div><div class="product-price">₱5</div><button class="add-to-cart" onclick="addToCart('Mosquito Coil (Katol)', 5)">Add to Cart</button></div><div class="product-card"><span class="product-category">Household</span><div class="product-name">Matches Box</div><div class="product-price">₱8</div><button class="add-to-cart" onclick="addToCart('Matches Box', 8)">Add to Cart</button></div><div class="product-card"><span class="product-category">Household</span><div class="product-name">Lighter</div><div class="product-price">₱15</div><button class="add-to-cart" onclick="addToCart('Lighter', 15)">Add to Cart</button></div></div></section>
+<footer class="footer"><div class="footer-brand">🏝️ Sulbad Olango Mart</div><div class="footer-credit">Website created by <a href="https://sulbadstemai.com/" target="_blank">Sulbad STEM AI</a></div><div class="footer-copy"><a href="https://www.facebook.com/SulbadSTEM/" target="_blank">📘 Facebook</a> | 📞 +63 9695176093 | 📧 sulbadstemai@gmail.com<br>© 2026 Sulbad Olango Mart. All rights reserved.<br>Serving Olango Island, Cebu, Philippines 🇵🇭</div></footer>
+<div class="modal-overlay" id="contactModal"><div class="modal"><div class="modal-header"><span class="modal-title">📧 Contact Us</span><button class="modal-close" onclick="closeContactModal()">×</button></div><div class="modal-body"><form id="contactForm" onsubmit="submitContactForm(event)"><div class="form-group"><label class="form-label">👤 Your Name *</label><input type="text" class="form-input" id="contactName" required></div><div class="form-group"><label class="form-label">📘 Facebook Name</label><input type="text" class="form-input" id="contactFacebook"></div><div class="form-group"><label class="form-label">💬 Viber Number</label><input type="tel" class="form-input" id="contactViber"></div><div class="form-group"><label class="form-label">📱 Phone Number *</label><input type="tel" class="form-input" id="contactPhone" required></div><div class="form-group"><label class="form-label">🏘️ Sitio</label><select class="form-select" id="contactSitio"><option value="">Select Sitio</option><option>Lubi-lubi</option><option>Tugas</option><option>Dapdap</option><option>Kamagong</option><option>Ipil-ipil</option><option>Baybayon</option><option>Tubigan</option><option>Bundok</option><option>Puno</option><option>Dagat</option><option>Mangga</option><option>Saging</option><option>Niyog</option><option>Acacia</option><option>Bamboo</option></select></div><div class="form-group"><label class="form-label">🏠 Purok</label><select class="form-select" id="contactPurok"><option value="">Select Purok</option><option>Purok 1</option><option>Purok 2</option><option>Purok 3</option><option>Purok 4</option><option>Purok 5</option><option>Purok 6</option><option>Purok 7</option></select></div><div class="form-group"><label class="form-label">📍 Nearby Landmark</label><select class="form-select" id="contactLandmark"><option value="">Select Landmark</option><option>Near Basketball Court</option><option>Beside Chapel</option><option>Near Elementary School</option><option>Port Area</option></select></div><div class="form-group"><label class="form-label">📋 Inquiry Type</label><select class="form-select" id="inquiryType"><option>General Inquiry</option><option>Advertise Your Business</option><option>Report an Issue</option><option>Partnership</option></select></div><div class="form-group"><label class="form-label">📝 Message</label><textarea class="form-textarea" id="contactMessage" placeholder="How can we help you?"></textarea></div><button type="submit" class="submit-btn">Send Message 📤</button></form></div></div></div>
+<div class="cart-widget" onclick="viewCart()"><span>🛒 Cart</span><span class="cart-count" id="cartCount">0</span></div>
+<script>
+let cart = [];
+function addToCart(name, price) {
+    cart.push({name: name, price: price});
+    updateCartDisplay();
+    alert('Added to cart: ' + name + ' - ₱' + price);
+}
+function updateCartDisplay() {
+    const cartCount = document.getElementById('cartCount');
+    if (cartCount) cartCount.textContent = cart.length;
+}
+function viewCart() {
+    if (cart.length === 0) {
+        alert('Your cart is empty!');
+        return;
+    }
+    let total = 0;
+    let cartText = '=== YOUR CART ===
+
+';
+    cart.forEach((item, i) => {
+        cartText += (i+1) + '. ' + item.name + ' - ₱' + item.price + '
+';
+        total += item.price;
+    });
+    cartText += '
+Total: ₱' + total;
+    cartText += '
+
+To order, contact us at:';
+    cartText += '
+📞 +63 9695176093';
+    cartText += '
+📧 sulbadstemai@gmail.com';
+    alert(cartText);
+}
+function openContactModal(){document.getElementById('contactModal').classList.add('active');}
+function closeContactModal(){document.getElementById('contactModal').classList.remove('active');}
+function submitContactForm(e){e.preventDefault();var n=document.getElementById('contactName').value,f=document.getElementById('contactFacebook').value,v=document.getElementById('contactViber').value,p=document.getElementById('contactPhone').value,s=document.getElementById('contactSitio').value,pr=document.getElementById('contactPurok').value,l=document.getElementById('contactLandmark').value,t=document.getElementById('inquiryType').value,m=document.getElementById('contactMessage').value;window.open('mailto:sulbadstemai@gmail.com?subject='+encodeURIComponent('Sulbad Olango Mart - Customer Inquiry')+'&body='+encodeURIComponent('Name: '+n+'
+Facebook: '+f+'
+Viber: '+v+'
+Phone: '+p+'
+Address: '+pr+', '+s+', '+l+'
+Inquiry Type: '+t+'
+
+Message:
+'+m));alert('Thank you! Your inquiry has been sent to sulbadstemai@gmail.com');closeContactModal();document.getElementById('contactForm').reset();}
+document.addEventListener('click',function(e){if(e.target.classList.contains('modal-overlay'))e.target.classList.remove('active');});
+</script></body></html>

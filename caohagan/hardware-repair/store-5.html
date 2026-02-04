@@ -1,0 +1,112 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Caohagan Hardware & Repair 5 | Sulbad Olango Mart</title><style>
+:root { --primary: #FF6B35; --secondary: #004E89; --accent: #1A936F; --highlight: #F7B801; --coral: #FF6B6B; --sand: #F4E4C1; --light: #FFFDF7; --dark: #2D3436; --gray: #636E72; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: linear-gradient(180deg, var(--light) 0%, var(--sand) 100%); min-height: 100vh; color: var(--dark); line-height: 1.6; }
+.header { background: linear-gradient(90deg, var(--secondary) 0%, #003d6b 100%); color: white; padding: 12px 20px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+.header-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+.header-brand { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+.header-brand a { color: white; text-decoration: none; display: flex; align-items: center; gap: 8px; }
+.header-info { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.nav-btn { background: rgba(255,255,255,0.15); color: white; text-decoration: none; padding: 10px 20px; border-radius: 25px; font-weight: 600; font-size: 0.9rem; transition: all 0.3s; border: 1px solid rgba(255,255,255,0.3); backdrop-filter: blur(10px); }
+.nav-btn:hover { background: var(--primary); transform: translateY(-2px); box-shadow: 0 4px 15px rgba(255,107,53,0.4); }
+.nav-btn.primary { background: var(--primary); border-color: var(--primary); }
+.nav-btn.accent { background: var(--accent); border-color: var(--accent); }
+.hero { background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%); padding: 60px 20px; text-align: center; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); opacity: 0.3; }
+.hero-title { font-size: 3.5rem; font-weight: 900; color: white; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); margin-bottom: 10px; position: relative; }
+.hero-tagline { font-size: 1.4rem; color: var(--highlight); font-weight: 600; position: relative; }
+.promo-banner { background: linear-gradient(90deg, var(--coral) 0%, var(--primary) 100%); color: white; padding: 20px; text-align: center; }
+.promo-text { font-size: 1.2rem; font-weight: 700; max-width: 900px; margin: 0 auto; }
+.promo-highlight { background: rgba(255,255,255,0.2); padding: 3px 12px; border-radius: 20px; font-weight: 800; }
+.ad-section { background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 30px 20px; }
+.ad-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 1200px; margin: 0 auto; }
+.ad-slot { background: white; border-radius: 12px; padding: 20px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: transform 0.3s; }
+.ad-slot:hover { transform: translateY(-5px); }
+.ad-slot img { max-width: 100%; border-radius: 8px; }
+.breadcrumb { background: var(--sand); padding: 15px 20px; border-bottom: 1px solid rgba(0,0,0,0.1); }
+.breadcrumb-content { max-width: 1200px; margin: 0 auto; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; font-size: 0.9rem; }
+.breadcrumb a { color: var(--secondary); text-decoration: none; font-weight: 600; }
+.breadcrumb a:hover { color: var(--primary); }
+.breadcrumb-current { font-weight: 700; color: var(--primary); }
+.section-title { font-size: 2rem; font-weight: 800; color: var(--dark); text-align: center; margin-bottom: 30px; position: relative; display: inline-block; left: 50%; transform: translateX(-50%); padding: 10px 30px; background: white; border-radius: 50px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+.category-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.category-card { background: white; border-radius: 20px; padding: 30px 20px; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.08); transition: all 0.3s; cursor: pointer; text-decoration: none; color: var(--dark); display: block; border: 2px solid transparent; }
+.category-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.15); border-color: var(--primary); }
+.category-icon { font-size: 3.5rem; margin-bottom: 15px; }
+.category-name { font-size: 1.3rem; font-weight: 800; margin-bottom: 8px; color: var(--secondary); }
+.category-desc { font-size: 0.9rem; color: var(--gray); }
+.barangay-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 15px; max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+.barangay-card { background: white; border-radius: 15px; padding: 25px 15px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.08); transition: all 0.3s; cursor: pointer; text-decoration: none; color: var(--dark); display: block; }
+.barangay-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.15); background: linear-gradient(135deg, var(--highlight) 0%, var(--sand) 100%); }
+.barangay-icon { font-size: 2.5rem; margin-bottom: 10px; }
+.barangay-name { font-size: 1.1rem; font-weight: 700; }
+.store-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.store-card { background: white; border-radius: 20px; padding: 25px; text-decoration: none; color: var(--dark); box-shadow: 0 8px 25px rgba(0,0,0,0.08); transition: all 0.3s; display: block; border: 2px solid transparent; }
+.store-card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(0,0,0,0.15); border-color: var(--accent); }
+.store-icon { font-size: 3rem; margin-bottom: 15px; }
+.store-name { font-size: 1.3rem; font-weight: 800; margin-bottom: 8px; color: var(--secondary); }
+.store-type { font-size: 0.95rem; color: var(--accent); font-weight: 600; margin-bottom: 10px; }
+.store-address { font-size: 0.9rem; color: var(--gray); margin-bottom: 10px; line-height: 1.5; }
+.store-phone { font-size: 1rem; font-weight: 700; color: var(--primary); }
+.store-hero { background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%); padding: 50px 20px; text-align: center; color: white; }
+.store-hero-icon { font-size: 4rem; margin-bottom: 15px; }
+.store-hero-name { font-size: 2.5rem; font-weight: 900; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); margin-bottom: 10px; }
+.store-image-section { max-width: 800px; margin: 30px auto; padding: 0 20px; }
+.store-image { width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+.info-box { background: white; border-radius: 15px; padding: 25px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); max-width: 800px; margin: 20px auto; }
+.info-label { font-size: 0.85rem; color: var(--gray); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+.info-value { font-size: 1.1rem; color: var(--dark); line-height: 1.6; }
+.product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.product-card { background: white; border-radius: 15px; padding: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); transition: all 0.3s; }
+.product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.12); }
+.product-name { font-size: 1rem; font-weight: 700; color: var(--dark); margin-bottom: 10px; }
+.product-price { font-size: 1.4rem; font-weight: 800; color: var(--primary); }
+.footer { background: linear-gradient(135deg, var(--dark) 0%, #1a1a2e 100%); color: white; padding: 40px 20px; text-align: center; margin-top: 60px; }
+.footer-brand { font-size: 1.6rem; font-weight: 800; color: var(--highlight); margin-bottom: 15px; }
+.footer-credit { font-size: 1rem; color: var(--sand); margin-bottom: 15px; }
+.footer-credit a { color: var(--highlight); text-decoration: none; font-weight: 600; }
+.footer-copy { margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; opacity: 0.8; }
+.footer-copy a { color: var(--highlight); text-decoration: none; }
+.content-section { max-width: 1200px; margin: 50px auto; padding: 0 20px; }
+.modal-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7); z-index: 2000; justify-content: center; align-items: center; padding: 20px; }
+.modal-overlay.active { display: flex; }
+.modal { background: var(--light); border-radius: 20px; max-width: 500px; width: 100%; max-height: 90vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+.modal-header { background: linear-gradient(90deg, var(--secondary) 0%, var(--primary) 100%); color: white; padding: 20px; display: flex; justify-content: space-between; align-items: center; }
+.modal-close { background: white; border: none; width: 35px; height: 35px; border-radius: 50%; font-size: 1.2rem; cursor: pointer; }
+.modal-body { padding: 25px; }
+.form-group { margin-bottom: 18px; }
+.form-label { display: block; font-weight: 700; margin-bottom: 8px; color: var(--dark); }
+.form-input, .form-select, .form-textarea { width: 100%; padding: 14px; border: 2px solid #e0e0e0; border-radius: 12px; font-size: 1rem; transition: border-color 0.3s; }
+.form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--primary); outline: none; }
+.form-textarea { min-height: 120px; resize: vertical; }
+.submit-btn { width: 100%; background: linear-gradient(90deg, var(--accent) 0%, #147a5c 100%); color: white; border: none; padding: 16px; border-radius: 12px; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: all 0.3s; }
+.submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(26,147,111,0.4); }
+.info-page-content { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+.info-card { background: white; border-radius: 20px; padding: 30px; margin-bottom: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.08); }
+.info-card h3 { color: var(--secondary); margin-bottom: 20px; font-size: 1.5rem; display: flex; align-items: center; gap: 10px; }
+.info-card table { width: 100%; border-collapse: collapse; }
+.info-card th { background: var(--secondary); color: white; padding: 15px; text-align: left; }
+.info-card td { padding: 12px 15px; border-bottom: 1px solid #eee; }
+.info-card tr:hover { background: var(--light); }
+.warning-box { background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%); border-left: 5px solid var(--highlight); border-radius: 10px; padding: 20px; margin: 20px 0; }
+.warning-box h4 { color: #856404; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+@media (max-width: 992px) { .ad-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 768px) { .hero-title { font-size: 2.2rem; } .header-content { flex-direction: column; } .category-grid, .store-grid { grid-template-columns: 1fr; } .ad-grid { grid-template-columns: 1fr; } }
+</style></head><body>
+<header class="header"><div class="header-content"><div class="header-brand"><a href="../../index.html">🏝️ Sulbad Olango Mart</a></div><div class="header-info"><a href="../../index.html" class="nav-btn primary">🏠 HOME</a><button class="nav-btn accent" onclick="openContactModal()">📧 Contact Us</button><a href="../../ferry-info.html" class="nav-btn">⛴️ Ferry Info</a></div></div></header>
+<nav class="breadcrumb"><div class="breadcrumb-content"><a href="../../index.html">Home</a><span>›</span><a href="../index.html">Caohagan</a><span>›</span><a href="index.html">Hardware & Repair</a><span>›</span><span class="breadcrumb-current">Caohagan Hardware & Repair 5</span></div></nav>
+<section class="store-hero"><div class="store-hero-icon">🔧</div><h1 class="store-hero-name">Caohagan Hardware & Repair 5</h1></section>
+<section class="store-image-section"><img src="../../../Call for Store ADS(1).jpg" alt="Store Image" class="store-image"></section>
+<section class="content-section"><div class="info-box"><div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;"><div><div class="info-label">📍 Address</div><div class="info-value">Purok 5, Sitio Lubi-lubi, Near Basketball Court, Barangay Caohagan, Olango Island, Cebu</div></div><div><div class="info-label">📞 Contact</div><div class="info-value">+63 954 685 3956</div></div></div></div></section>
+<section class="content-section"><h2 class="section-title">📋 Products & Services</h2><div class="product-grid"><div class="product-card"><div class="product-name">Sample Product 1</div><div class="product-price">₱179</div></div><div class="product-card"><div class="product-name">Sample Product 2</div><div class="product-price">₱58</div></div><div class="product-card"><div class="product-name">Sample Product 3</div><div class="product-price">₱50</div></div><div class="product-card"><div class="product-name">Sample Product 4</div><div class="product-price">₱452</div></div><div class="product-card"><div class="product-name">Sample Product 5</div><div class="product-price">₱118</div></div><div class="product-card"><div class="product-name">Sample Product 6</div><div class="product-price">₱488</div></div></div></section>
+<footer class="footer"><div class="footer-brand">🏝️ Sulbad Olango Mart</div><div class="footer-credit">Website created by <a href="https://sulbadstemai.com/" target="_blank">Sulbad STEM AI</a></div><div class="footer-copy"><a href="https://www.facebook.com/SulbadSTEM/" target="_blank">📘 Facebook</a> | 📞 +63 9695176093 | 📧 sulbadstemai@gmail.com<br>© 2026 Sulbad Olango Mart. All rights reserved.<br>Serving Olango Island, Cebu, Philippines 🇵🇭</div></footer>
+<div class="modal-overlay" id="contactModal"><div class="modal"><div class="modal-header"><span class="modal-title">📧 Contact Us</span><button class="modal-close" onclick="closeContactModal()">×</button></div><div class="modal-body"><form id="contactForm" onsubmit="submitContactForm(event)"><div class="form-group"><label class="form-label">👤 Your Name *</label><input type="text" class="form-input" id="contactName" required></div><div class="form-group"><label class="form-label">📘 Facebook Name</label><input type="text" class="form-input" id="contactFacebook"></div><div class="form-group"><label class="form-label">💬 Viber Number</label><input type="tel" class="form-input" id="contactViber"></div><div class="form-group"><label class="form-label">📱 Phone Number *</label><input type="tel" class="form-input" id="contactPhone" required></div><div class="form-group"><label class="form-label">🏘️ Sitio</label><select class="form-select" id="contactSitio"><option value="">Select Sitio</option><option>Lubi-lubi</option><option>Tugas</option><option>Dapdap</option><option>Kamagong</option><option>Ipil-ipil</option><option>Baybayon</option><option>Tubigan</option><option>Bundok</option><option>Puno</option><option>Dagat</option><option>Mangga</option><option>Saging</option><option>Niyog</option><option>Acacia</option><option>Bamboo</option></select></div><div class="form-group"><label class="form-label">🏠 Purok</label><select class="form-select" id="contactPurok"><option value="">Select Purok</option><option>Purok 1</option><option>Purok 2</option><option>Purok 3</option><option>Purok 4</option><option>Purok 5</option><option>Purok 6</option><option>Purok 7</option></select></div><div class="form-group"><label class="form-label">📍 Nearby Landmark</label><select class="form-select" id="contactLandmark"><option value="">Select Landmark</option><option>Near Basketball Court</option><option>Beside Chapel</option><option>Near Elementary School</option><option>Port Area</option><option>Sanctuary Entrance</option><option>Waiting Shed</option><option>Near Barangay Hall</option><option>Beside Sari-Sari Store</option><option>Near Health Center</option><option>Beach Front</option><option>Near Fish Port</option><option>Beside Coconut Trees</option><option>Near the Bridge</option><option>Community Plaza</option><option>Near Multi-Purpose Hall</option><option>Near Market</option><option>Near Church</option><option>Near Day Care Center</option></select></div><div class="form-group"><label class="form-label">📋 Inquiry Type *</label><select class="form-select" id="inquiryType" required><option value="">Select inquiry type</option><option>Customer Support</option><option>Digital Content Creation</option><option>Business Listing</option><option>Advertising</option><option>Partnership</option><option>Other</option></select></div><div class="form-group"><label class="form-label">📝 Message *</label><textarea class="form-textarea" id="contactMessage" required></textarea></div><button type="submit" class="submit-btn">📤 Send Message</button><p style="text-align:center;margin-top:15px;font-size:0.85rem;color:#666;">Your message will be sent to <strong>sulbadstemai@gmail.com</strong></p></form></div></div></div>
+<script>function openContactModal(){document.getElementById('contactModal').classList.add('active');}function closeContactModal(){document.getElementById('contactModal').classList.remove('active');}function submitContactForm(e){e.preventDefault();var n=document.getElementById('contactName').value,f=document.getElementById('contactFacebook').value,v=document.getElementById('contactViber').value,p=document.getElementById('contactPhone').value,s=document.getElementById('contactSitio').value,pr=document.getElementById('contactPurok').value,l=document.getElementById('contactLandmark').value,t=document.getElementById('inquiryType').value,m=document.getElementById('contactMessage').value;window.open('mailto:sulbadstemai@gmail.com?subject='+encodeURIComponent('Sulbad Olango Mart - Customer Inquiry')+'&body='+encodeURIComponent('Name: '+n+'
+Facebook: '+f+'
+Viber: '+v+'
+Phone: '+p+'
+Address: '+pr+', '+s+', '+l+'
+Inquiry Type: '+t+'
+
+Message:
+'+m));alert('Thank you! Your inquiry has been sent to sulbadstemai@gmail.com');closeContactModal();document.getElementById('contactForm').reset();}document.addEventListener('click',function(e){if(e.target.classList.contains('modal-overlay'))e.target.classList.remove('active');});</script></body></html>

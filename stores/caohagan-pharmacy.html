@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Caohagan Pharmacy | Sulbad Olango Mart</title>
+<style>
+:root { --red: #F20519; --blue: #05AFF2; --green: #038C4C; --yellow: #F2E205; --gold: #F2CB05; --dark: #1a1a2e; --light: #f8f9fa; --gray: #636e72; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--light); min-height: 100vh; color: var(--dark); line-height: 1.6; }
+.header { background: linear-gradient(90deg, var(--blue) 0%, var(--green) 100%); color: white; padding: 15px 20px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+.header-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+.header-brand { font-size: 1.5rem; font-weight: 800; }
+.header-brand a { color: white; text-decoration: none; display: flex; align-items: center; gap: 8px; }
+.header-info { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.nav-btn { background: rgba(255,255,255,0.2); color: white; text-decoration: none; padding: 10px 20px; border-radius: 25px; font-weight: 600; font-size: 0.9rem; transition: all 0.3s; border: none; cursor: pointer; }
+.nav-btn:hover { background: var(--yellow); color: var(--dark); }
+.nav-btn.primary { background: var(--red); }
+.hero { background: linear-gradient(135deg, var(--blue) 0%, var(--green) 100%); padding: 60px 20px; text-align: center; color: white; }
+.hero-title { font-size: 2.8rem; font-weight: 900; margin-bottom: 10px; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); }
+.hero-tagline { font-size: 1.3rem; color: var(--yellow); font-weight: 600; }
+.section { padding: 40px 20px; max-width: 1200px; margin: 0 auto; }
+.section-title { font-size: 1.8rem; font-weight: 800; text-align: center; margin-bottom: 30px; color: var(--dark); }
+.featured-section { background: linear-gradient(135deg, #fff9e6 0%, #fff 100%); padding: 50px 20px; }
+.featured-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; }
+.featured-card { background: white; border-radius: 20px; padding: 30px 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 4px solid var(--gold); position: relative; text-align: center; transition: transform 0.3s; }
+.featured-card:hover { transform: translateY(-10px); }
+.featured-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--red); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; }
+.featured-icon { font-size: 3rem; margin-bottom: 15px; }
+.featured-title { font-size: 1.2rem; font-weight: 800; color: var(--blue); margin-bottom: 10px; }
+.featured-text { font-size: 0.95rem; color: var(--gray); margin-bottom: 15px; }
+.featured-price { font-size: 1.1rem; font-weight: 700; color: var(--green); }
+.category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
+.category-card { background: white; border-radius: 20px; padding: 30px 15px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.08); transition: all 0.3s; cursor: pointer; text-decoration: none; color: var(--dark); display: block; border-top: 5px solid; }
+.category-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,0.15); }
+.category-icon { font-size: 2.5rem; margin-bottom: 10px; }
+.category-name { font-size: 1.1rem; font-weight: 700; }
+.barangay-filter { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 30px; }
+.barangay-btn { background: white; border: 2px solid var(--blue); color: var(--blue); padding: 10px 20px; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s; }
+.barangay-btn:hover { background: var(--blue); color: white; }
+.store-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.store-card { background: white; border-radius: 15px; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); text-decoration: none; color: var(--dark); display: block; transition: all 0.3s; border-left: 5px solid var(--green); }
+.store-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.12); }
+.store-name { font-size: 1.2rem; font-weight: 800; color: var(--blue); margin-bottom: 8px; }
+.store-info { font-size: 0.9rem; color: var(--gray); margin-bottom: 5px; }
+.store-phone { font-size: 1rem; font-weight: 700; color: var(--green); }
+.product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 15px; }
+.product-card { background: white; border-radius: 12px; padding: 15px; box-shadow: 0 3px 10px rgba(0,0,0,0.08); border-left: 4px solid var(--green); position: relative; }
+.product-cat { font-size: 0.7rem; color: white; background: var(--green); padding: 2px 8px; border-radius: 10px; display: inline-block; margin-bottom: 8px; }
+.product-name { font-size: 0.9rem; font-weight: 600; margin-bottom: 8px; min-height: 40px; }
+.product-price { font-size: 1.3rem; font-weight: 800; color: var(--red); }
+.add-cart-btn { background: var(--red); color: white; border: none; padding: 8px 15px; border-radius: 20px; cursor: pointer; font-weight: 600; margin-top: 10px; width: 100%; transition: all 0.3s; }
+.add-cart-btn:hover { background: var(--dark); }
+.home-service-badge { background: linear-gradient(135deg, var(--green), var(--blue)); color: white; padding: 15px 25px; border-radius: 15px; text-align: center; margin: 20px 0; font-weight: 700; font-size: 1.1rem; }
+.fb-button { display: inline-flex; align-items: center; gap: 8px; background: #1877F2; color: white; padding: 12px 25px; border-radius: 25px; text-decoration: none; font-weight: 600; margin-top: 15px; transition: all 0.3s; }
+.fb-button:hover { background: #166fe5; transform: scale(1.05); }
+.cart-widget { position: fixed; bottom: 20px; right: 20px; background: var(--red); color: white; padding: 15px 25px; border-radius: 50px; box-shadow: 0 5px 20px rgba(0,0,0,0.3); cursor: pointer; z-index: 1000; font-weight: 700; display: flex; align-items: center; gap: 10px; transition: all 0.3s; }
+.cart-widget:hover { transform: scale(1.1); }
+.footer { background: var(--dark); color: white; padding: 40px 20px; text-align: center; margin-top: 50px; }
+.footer-brand { font-size: 1.5rem; font-weight: 800; color: var(--gold); margin-bottom: 15px; }
+.footer a { color: var(--yellow); text-decoration: none; }
+.modal-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7); z-index: 2000; justify-content: center; align-items: center; padding: 20px; }
+.modal-overlay.active { display: flex; }
+.modal { background: var(--light); border-radius: 20px; max-width: 500px; width: 100%; max-height: 90vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+.modal-header { background: linear-gradient(90deg, var(--blue) 0%, var(--green) 100%); color: white; padding: 20px; display: flex; justify-content: space-between; align-items: center; }
+.modal-body { padding: 25px; }
+.form-group { margin-bottom: 15px; }
+.form-label { display: block; font-weight: 700; margin-bottom: 5px; color: var(--dark); }
+.form-input, .form-select, .form-textarea { width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 10px; font-size: 1rem; transition: border-color 0.3s; }
+.form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--blue); outline: none; }
+.form-textarea { min-height: 100px; resize: vertical; }
+.submit-btn { width: 100%; background: linear-gradient(90deg, var(--green) 0%, var(--blue) 100%); color: white; border: none; padding: 15px; border-radius: 10px; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: all 0.3s; }
+.submit-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+.notice-text { color: var(--red); font-size: 0.85rem; margin: 15px 0; font-weight: 600; text-align: center; }
+.barangay-section { margin-bottom: 40px; }
+.barangay-title { font-size: 1.4rem; font-weight: 700; color: var(--blue); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 3px solid var(--yellow); }
+.info-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+.info-table th { background: var(--blue); color: white; padding: 12px; text-align: left; }
+.info-table td { padding: 12px; border-bottom: 1px solid #eee; }
+.info-table tr:hover { background: #f8f9fa; }
+@media (max-width: 768px) { .hero-title { font-size: 2rem; } .category-grid { grid-template-columns: repeat(2, 1fr); } }
+</style>
+</head>
+<body>
+<header class="header">
+<div class="header-content">
+<div class="header-brand"><a href="../index.html">🏝️ Sulbad Olango Mart</a></div>
+<div class="header-info">
+<a href="../index.html" class="nav-btn primary">🏠 HOME</a>
+<button class="nav-btn" onclick="openContactModal()" style="background:#F20519;">📧 Contact Us</button>
+<a href="../ferry-info.html" class="nav-btn">⛴️ Ferry</a>
+<a href="../typhoon-updates.html" class="nav-btn" style="background:#F2CB05;color:#1a1a2e;">🌀 Typhoon</a>
+</div>
+</div>
+</header>
+<section class="hero" style="padding:40px 20px;">
+<div style="font-size:3rem;margin-bottom:10px;">💊</div>
+<h1 class="hero-title" style="font-size:1.8rem;">Caohagan Pharmacy</h1>
+<p style="color:#F2E205;">Caohagan, Olango Island</p>
+
+
+</section>
+<section class="section">
+<div style="background:white;padding:20px;border-radius:15px;margin-bottom:30px;box-shadow:0 3px 10px rgba(0,0,0,0.08);">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+<div>
+<div style="color:#636e72;font-size:0.85rem;margin-bottom:5px;">📍 ADDRESS</div>
+<div style="font-weight:600;">Purok 2, Barangay Caohagan</div>
+</div>
+<div>
+<div style="color:#636e72;font-size:0.85rem;margin-bottom:5px;">📞 CONTACT</div>
+<div style="font-weight:600;">+63 934 659 6763</div>
+</div>
+</div>
+</div>
+<h2 class="section-title">📋 Products & Services</h2>
+<div class="product-grid"><div class="product-card">
+<span class="product-cat">Service</span>
+<div class="product-name">Pharmacy Service 1</div>
+<div class="product-price">₱294</div>
+<button class="add-cart-btn" onclick="addToCart('Pharmacy Service 1', 294)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Service</span>
+<div class="product-name">Pharmacy Service 2</div>
+<div class="product-price">₱381</div>
+<button class="add-cart-btn" onclick="addToCart('Pharmacy Service 2', 381)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Service</span>
+<div class="product-name">Pharmacy Service 3</div>
+<div class="product-price">₱374</div>
+<button class="add-cart-btn" onclick="addToCart('Pharmacy Service 3', 374)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Service</span>
+<div class="product-name">Pharmacy Service 4</div>
+<div class="product-price">₱167</div>
+<button class="add-cart-btn" onclick="addToCart('Pharmacy Service 4', 167)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Service</span>
+<div class="product-name">Pharmacy Service 5</div>
+<div class="product-price">₱218</div>
+<button class="add-cart-btn" onclick="addToCart('Pharmacy Service 5', 218)">Add to Cart</button>
+</div><div class="product-card">
+<span class="product-cat">Service</span>
+<div class="product-name">Pharmacy Service 6</div>
+<div class="product-price">₱239</div>
+<button class="add-cart-btn" onclick="addToCart('Pharmacy Service 6', 239)">Add to Cart</button>
+</div></div>
+</section>
+<section class="section" style="background:linear-gradient(135deg,#fff9e6,#fff);border-radius:20px;margin:30px auto;padding:30px;">
+<h3 style="text-align:center;color:#004E89;margin-bottom:20px;">🚚 Order via Sulbad Agency</h3>
+<div style="text-align:center;">
+<p style="margin-bottom:15px;">We'll deliver your order within 24 hours!</p>
+<p style="color:#F20519;font-weight:700;font-size:1.1rem;">📞 +63 9695176093 | 📧 sulbadstemai@gmail.com</p>
+<p style="color:#636e72;font-size:0.9rem;margin-top:10px;">Free delivery for orders over ₱1,000</p>
+</div>
+</section>
+<footer class="footer">
+<div class="footer-brand">🏝️ Sulbad Olango Mart</div>
+<div style="margin-bottom:15px;">Website created by <a href="https://sulbadstemai.com/" target="_blank">Sulbad STEM AI</a></div>
+<div>
+<a href="https://www.facebook.com/SulbadSTEM/" target="_blank">📘 Facebook</a> | 
+📞 +63 9695176093 | 📧 sulbadstemai@gmail.com
+</div>
+<div style="margin-top:15px;font-size:0.9rem;opacity:0.8;">
+© 2026 Sulbad Olango Mart. Serving Olango Island, Cebu, Philippines 🇵🇭
+</div>
+</footer>
+<div class="modal-overlay" id="contactModal">
+<div class="modal">
+<div class="modal-header">
+<span style="font-weight:700;font-size:1.1rem;">📧 Contact Us</span>
+<button onclick="closeContactModal()" style="background:white;border:none;width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:1.2rem;">×</button>
+</div>
+<div class="modal-body">
+<form action="https://formsubmit.co/sulbadstemai@gmail.com" method="POST">
+<input type="hidden" name="_subject" value="New Inquiry - Sulbad Olango Mart">
+<input type="hidden" name="_captcha" value="false">
+<div class="form-group">
+<label class="form-label">👤 Name *</label>
+<input type="text" name="name" class="form-input" required>
+</div>
+<div class="form-group">
+<label class="form-label">📱 Mobile Number *</label>
+<input type="tel" name="phone" class="form-input" required>
+</div>
+<div class="form-group">
+<label class="form-label">💬 Viber Number</label>
+<input type="tel" name="viber" class="form-input" placeholder="If available">
+</div>
+<div class="form-group">
+<label class="form-label">📘 Facebook Name</label>
+<input type="text" name="facebook" class="form-input" placeholder="For easier searching">
+</div>
+<div class="form-group">
+<label class="form-label">📧 Email *</label>
+<input type="email" name="email" class="form-input" placeholder="Important for updates" required>
+</div>
+<div class="form-group">
+<label class="form-label">📍 Address *</label>
+<input type="text" name="address" class="form-input" placeholder="Sitio / Purok / Landmark" required>
+</div>
+<div class="form-group">
+<label class="form-label">🏘️ Barangay *</label>
+<select name="barangay" class="form-select" required>
+<option value="">Select Barangay</option>
+<option>Baring</option><option>Sabang</option><option>Talima</option>
+<option>Tingo</option><option>Caw-oy</option><option>San Vicente</option>
+<option>Pangan-an</option><option>Gilutongan</option><option>Caohagan</option>
+<option>Caubian</option><option>Cawhagan</option>
+</select>
+</div>
+<div class="form-group">
+<label class="form-label">📋 How can we help you?</label>
+<select name="inquiry_type" class="form-select">
+<option>📦 Follow-up on Order</option>
+<option>📢 I want to Advertise (₱10/day)</option>
+<option>🌐 Website Creation Service</option>
+<option>📍 Google Map Setup & Management</option>
+<option>🤝 Merchant Partnership</option>
+<option>✨ Other Special Request</option>
+</select>
+</div>
+<div class="form-group">
+<label class="form-label">📝 Message</label>
+<textarea name="message" class="form-textarea" placeholder="How can we help you?"></textarea>
+</div>
+<p class="notice-text">Note: We will contact you within 24 hours. Please ensure your Email is correct.</p>
+<button type="submit" class="submit-btn">Send Inquiry 📤</button>
+</form>
+</div>
+</div>
+</div>
+<div class="cart-widget" onclick="viewCart()">🛒 Cart <span id="cartCount">0</span></div>
+<script>
+let cart = [];
+function addToCart(name, price) {
+    cart.push({name: name, price: price});
+    document.getElementById('cartCount').textContent = cart.length;
+    alert('Added to cart: ' + name + ' - ₱' + price);
+}
+function viewCart() {
+    if (cart.length === 0) { alert('Your cart is empty!'); return; }
+    let total = 0;
+    let details = '=== YOUR ORDER ===
+
+';
+    cart.forEach((item, i) => { details += (i+1) + '. ' + item.name + ' - ₱' + item.price + '
+'; total += item.price; });
+    details += '
+Total: ₱' + total;
+    details += '
+
+To order, contact us:';
+    details += '
+📞 +63 9695176093';
+    details += '
+📧 sulbadstemai@gmail.com';
+    alert(details);
+}
+function openContactModal(){document.getElementById('contactModal').classList.add('active');}
+function closeContactModal(){document.getElementById('contactModal').classList.remove('active');}
+document.addEventListener('click',function(e){if(e.target.classList.contains('modal-overlay'))e.target.classList.remove('active');});
+</script>
+</body>
+</html>
